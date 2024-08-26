@@ -1,22 +1,21 @@
-import 'package:get/get.dart';
-import 'package:your_tickets/screens/auth/bindings/auth_binding.dart';
-import 'package:your_tickets/screens/auth/presentation/screens/login_screen.dart';
-import 'package:your_tickets/screens/auth/presentation/screens/registration_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:your_tickets/routes/routes_name.dart';
+import 'package:your_tickets/screens/registration_screen.dart';
+import '../screens/splash_screen.dart';
+import '../screens/login_screen.dart';
 
 class Routes {
-  static const String login = '/login';
-  static const String registration = '/registration';
-
-  static final List<GetPage> pages = [
-    GetPage(
-      name: login,
-      page: () => LoginScreen(),
-      binding: AuthBinding(),
-    ),
-    GetPage(
-      name: registration,
-      page: () => RegistrationScreen(),
-      binding: AuthBinding(),
-    ),
-  ];
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      // case '/':
+      //   return MaterialPageRoute(builder: (_) => SplashScreen());
+      case RouteName.login:
+        return MaterialPageRoute(builder: (_) => LoginScreen());
+      case RouteName.register:
+        return MaterialPageRoute(builder: (_) => RegistrationScreen());
+    // Add other routes here
+      default:
+        return MaterialPageRoute(builder: (_) => LoginScreen());
+    }
+  }
 }

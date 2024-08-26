@@ -1,0 +1,49 @@
+lib/
+├── models/
+│   ├── event_model.dart
+│   ├── seat_model.dart
+│   ├── booking_model.dart
+│   └── user_model.dart
+├── services/
+│   ├── api_service.dart
+│   ├── auth_service.dart
+│   ├── payment_service.dart
+│   └── deep_link_service.dart
+├── providers/
+│   ├── auth_provider.dart
+│   ├── booking_provider.dart
+│   ├── event_provider.dart
+│   └── seat_provider.dart
+├── screens/
+│   ├── splash_screen.dart
+│   ├── login_screen.dart
+│   ├── home_screen.dart
+│   ├── event_details_screen.dart
+│   ├── seat_selection_screen.dart
+│   ├── payment_screen.dart
+│   ├── booking_confirmation_screen.dart
+│   ├── profile_screen.dart
+│   ├── booking_history_screen.dart
+│   └── notifications_screen.dart
+├── widgets/
+│   ├── event_card.dart
+│   ├── seat_map.dart
+│   ├── custom_button.dart
+│   ├── custom_text_field.dart
+│   └── booking_summary.dart
+├── repositories/
+│   ├── event_repository.dart
+│   ├── booking_repository.dart
+│   └── user_repository.dart
+├── routes/
+│   ├── app_routes.dart
+│   └── route_names.dart
+├── utils/
+│   ├── constants.dart
+│   ├── validators.dart
+│   └── extensions.dart
+├── theme/
+│   ├── app_theme.dart
+│   ├── text_styles.dart
+│   └── color_schemes.dart
+└── main.dart

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:your_tickets/routes/routes.dart';
-import 'package:your_tickets/screens/auth/presentation/controller/auth_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
