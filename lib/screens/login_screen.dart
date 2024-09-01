@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/core/validator.dart';
+import 'package:your_tickets/widgets/primary_button.dart';
+import 'package:your_tickets/widgets/text_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -10,103 +13,49 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.all(20),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const FlutterLogo(size: 250),
-            const SizedBox(height: 20),
-            TextFormField(
-              controller: _emailController,
-              decoration: InputDecoration(
+      appBar:
+          AppBar(automaticallyImplyLeading: false, title: const Text('Login')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            children: [
+              TextInputField(
+                controller: _emailController,
                 hintText: 'Email',
-                prefixIcon: const Icon(Icons.email_outlined),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+                prefixIcon: const Icon(Icons.email),
+                validator: (v) => Validator.validateEmail(v.toString().trim()),
+                keyboardType: TextInputType.emailAddress,
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
+              const SizedBox(height: 16),
+              TextInputField(
                 hintText: 'Password',
                 prefixIcon: const Icon(Icons.password),
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.visibility),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+                controller: _passwordController,
+                obscureText: true,
+                validator: (v) =>
+                    Validator.validatePassword(v.toString().trim()),
+                keyboardType: TextInputType.text,
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
-                }
-                // Add more validation if needed
-                return null;
-              },
-            ),
-            const SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {},
-                child: const Text('Forgot Password'),
+              const SizedBox(height: 16),
+              PrimaryButton(label: 'Login', onPressed: () {}),
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    // Handle login logic here
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  padding: const EdgeInsets.all(15),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 0.5),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-                child: const Text('Login'),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Didn\'t register yet?'),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Register here'),
-                ),
-              ],
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Don\'t have an account?'),
+                  TextButton(onPressed: () {}, child: const Text('Sign Up'))
+                ],
+              )
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }

@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:your_tickets/core/validator.dart';
+import 'package:your_tickets/widgets/primary_button.dart';
+import 'package:your_tickets/widgets/text_input_field.dart';
 
 class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({super.key});
@@ -24,146 +26,54 @@ class RegistrationScreen extends StatelessWidget {
             children: [
               const FlutterLogo(size: 250),
               const SizedBox(height: 20),
-              TextFormField(
+              TextInputField(
+                hintText: 'Name',
+                prefixIcon: const Icon(Icons.person),
                 controller: _nameController,
-                decoration: InputDecoration(
-                  hintText: 'Name',
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
                 keyboardType: TextInputType.text,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
+                validator: (v) => Validator.validateName(v.toString().trim()),
               ),
               const SizedBox(height: 20),
-              TextFormField(
+              TextInputField(
+                prefixIcon: const Icon(Icons.email),
+                hintText: 'Email',
                 controller: _emailController,
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
                 keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                },
+                validator: (v) => Validator.validateEmail(v.toString().trim()),
               ),
               const SizedBox(height: 20),
-              TextFormField(
+              TextInputField(
                 controller: _mobileNoController,
-                decoration: InputDecoration(
-                  hintText: 'Mobile No.',
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
+                hintText: 'Mobile No.',
+                prefixIcon: const Icon(Icons.phone),
                 keyboardType: TextInputType.phone,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your phone';
-                  }
-                  return null;
-                },
+                validator: (v) =>
+                    Validator.validateMobileNumber(v.toString().trim()),
               ),
               const SizedBox(height: 20),
-              TextFormField(
+              TextInputField(
+                hintText: 'Password',
+                prefixIcon: const Icon(Icons.password),
                 controller: _passwordController,
+                suffixIcon: const Icon(Icons.remove_red_eye),
                 obscureText: false,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  prefixIcon: const Icon(Icons.password),
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                     CupertinoIcons.eye_slash_fill,
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
                 keyboardType: TextInputType.text,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
-                  }
-                  // Add more validation if needed
-                  return null;
-                },
+                validator: (v) =>
+                    Validator.validatePassword(v.toString().trim()),
               ),
               const SizedBox(height: 20),
-              TextFormField(
+              TextInputField(
+                hintText: 'Confirm Password',
+                prefixIcon: const Icon(Icons.password),
                 controller: _cPController,
+                suffixIcon: const Icon(Icons.remove_red_eye),
                 obscureText: false,
-                decoration: InputDecoration(
-                  hintText: 'Confirm Password',
-                  prefixIcon: const Icon(Icons.password),
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      CupertinoIcons.eye_slash_fill,
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
                 keyboardType: TextInputType.text,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
-                  }
-                  // Add more validation if needed
-                  return null;
-                },
+                validator: (v) =>
+                    Validator.validatePassword(v.toString().trim()),
               ),
               const SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      // Handle login logic here
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    padding: const EdgeInsets.all(15),
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(width: 0.5),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                  child: const Text('Register'),
-                ),
-              ),
+              PrimaryButton(label: 'Sign Up', onPressed: () {})
             ],
           ),
         ),

@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 class ApiResponse {
-  final bool status;
+  final bool success;
   final String message;
   final dynamic data;
 
   ApiResponse(
-      {required this.status, required this.message, required this.data});
+      {required this.success, required this.message, required this.data});
 
   factory ApiResponse.fromJson(Map<String, dynamic> json) {
     return ApiResponse(
-      status: json['status'],
+      success: json['status'],
       message: json['message'],
       data: json['data'],
     );
@@ -18,7 +18,7 @@ class ApiResponse {
 
   Map<String, dynamic> toJson() {
     return {
-      'status': status,
+      'status': success,
       'message': message,
       'data': _encodeData(),
     };

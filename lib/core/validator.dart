@@ -29,4 +29,15 @@ class Validator {
     }
     return null;
   }
+
+  static String? validateMobileNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Mobile number is required';
+    }
+    final mobileRegex = RegExp(r'^\d{10}$');
+    if (!mobileRegex.hasMatch(value)) {
+      return 'Enter a valid 10-digit mobile number';
+    }
+    return null;
+  }
 }
