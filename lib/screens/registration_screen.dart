@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/core/validator.dart';
+import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
+import 'package:your_tickets/widgets/text_and_button.dart';
 import 'package:your_tickets/widgets/text_input_field.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -22,10 +26,9 @@ class RegistrationScreen extends StatelessWidget {
           key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const FlutterLogo(size: 250),
-              const SizedBox(height: 20),
+              const FlutterLogo(size: 200),
+              gapV20(),
               TextInputField(
                 hintText: 'Name',
                 prefixIcon: const Icon(Icons.person),
@@ -33,7 +36,7 @@ class RegistrationScreen extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 validator: (v) => Validator.validateName(v.toString().trim()),
               ),
-              const SizedBox(height: 20),
+              gapV20(),
               TextInputField(
                 prefixIcon: const Icon(Icons.email),
                 hintText: 'Email',
@@ -41,7 +44,7 @@ class RegistrationScreen extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 validator: (v) => Validator.validateEmail(v.toString().trim()),
               ),
-              const SizedBox(height: 20),
+              gapV20(),
               TextInputField(
                 controller: _mobileNoController,
                 hintText: 'Mobile No.',
@@ -50,30 +53,41 @@ class RegistrationScreen extends StatelessWidget {
                 validator: (v) =>
                     Validator.validateMobileNumber(v.toString().trim()),
               ),
-              const SizedBox(height: 20),
+              gapV20(),
               TextInputField(
                 hintText: 'Password',
                 prefixIcon: const Icon(Icons.password),
                 controller: _passwordController,
-                suffixIcon: const Icon(Icons.remove_red_eye),
+                suffixIcon: IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.remove_red_eye)),
                 obscureText: false,
                 keyboardType: TextInputType.text,
                 validator: (v) =>
                     Validator.validatePassword(v.toString().trim()),
               ),
-              const SizedBox(height: 20),
+              gapV20(),
               TextInputField(
                 hintText: 'Confirm Password',
                 prefixIcon: const Icon(Icons.password),
                 controller: _cPController,
-                suffixIcon: const Icon(Icons.remove_red_eye),
+                suffixIcon: IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.remove_red_eye)),
                 obscureText: false,
                 keyboardType: TextInputType.text,
                 validator: (v) =>
                     Validator.validatePassword(v.toString().trim()),
               ),
-              const SizedBox(height: 20),
-              PrimaryButton(label: 'Sign Up', onPressed: () {})
+              gapV20(),
+              PrimaryButton(
+                label: 'Sign Up',
+                onPressed: () {},
+                isLoading: false,
+              ),
+              gapV10(),
+              TextAndButton(
+                  onPressed: () => context.go(RoutePath.login),
+                  text: 'Already have an account?',
+                  buttonLabel: 'Login'),
             ],
           ),
         ),
