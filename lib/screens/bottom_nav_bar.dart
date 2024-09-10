@@ -16,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
 
   final List<Widget> _children = [
-    HomeScreen(),
+    const HomeScreen(),
     const SearchScreen(),
     const OrderScreen(),
     const ProfileScreen(),

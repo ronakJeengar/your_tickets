@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/helper/utils/custom_theme.dart';
 import 'package:your_tickets/routes/routes.dart';
 import 'package:your_tickets/themes/app_theme.dart';
 
@@ -10,9 +11,9 @@ class TicketBookingApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Ticket Booking App',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      theme:  AppTheme.lightTheme,
+      // darkTheme: AppTheme.darkTheme,
+      // themeMode: ThemeMode.light,
       routerConfig: Routes.router,
     );
   }
