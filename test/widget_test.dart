@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:your_tickets/routes/routes_name.dart';
+import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/screens/login_screen.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'package:your_tickets/widgets/text_input_field.dart'; // Make sure to import the LoginScreen file
@@ -16,7 +16,7 @@ void main() {
       router = GoRouter(
         initialLocation: '/',
         routes: [
-          GoRoute(path: '/', builder: (context, state) => LoginScreen()),
+          GoRoute(path: '/', builder: (context, state) => const LoginScreen()),
           GoRoute(
               path: RoutePath.bottomNavBar,
               builder: (context, state) => const Scaffold(

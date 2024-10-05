@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:your_tickets/models/category_model.dart';
+import 'package:your_tickets/models/extra/category_model.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryModel categoryModel;

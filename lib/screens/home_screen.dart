@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:your_tickets/constants/gap.dart';
-import 'package:your_tickets/models/category_model.dart';
-import 'package:your_tickets/models/movie_model.dart';
+import 'package:your_tickets/models/extra/category_model.dart';
 import 'package:your_tickets/widgets/category_card.dart';
 import 'package:your_tickets/widgets/movies_card.dart';
 import 'package:your_tickets/widgets/see_all_button.dart';
 
+import '../models/extra/movie_model.dart';
 import '../routes/routes_name.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -176,7 +176,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Recommended Movies'),
-                  SeeAllButton(onPressed: () {})
+                  SeeAllButton(
+                    onPressed: () => context.pushNamed(RoutesName.seeAllMovies),
+                  )
                 ],
               ),
             ),
@@ -187,13 +189,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: movies.length,
-                  itemBuilder: (context, index) {
+                  itemBuilder: (ctx, index) {
                     final movie = movies[index];
                     return MoviesCard(
                       movieModel: movie,
-                      scale: scale,
-                      onPressed: () => context.go(RoutePath.movieDetailsScreen),
-                      onLongPressed: () {},
+                      onPressed: () => context.pushNamed(
+                        RoutesName.movieDetailsScreen,
+                        extra: {
+                          'movieTitle': movie.name,
+                        },
+                      ),
                     );
                   },
                 ),

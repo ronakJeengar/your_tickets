@@ -1,8 +1,14 @@
 import 'package:go_router/go_router.dart';
+import 'package:your_tickets/models/extra/theatre_model.dart';
 import 'package:your_tickets/routes/routes_name.dart';
+import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/screens/bottom_nav_bar.dart';
+import 'package:your_tickets/screens/confirm_booking.dart';
 import 'package:your_tickets/screens/movie_details_screen.dart';
 import 'package:your_tickets/screens/registration_screen.dart';
+import 'package:your_tickets/screens/seating_arrangement.dart';
+import 'package:your_tickets/screens/see_all_movies.dart';
+import 'package:your_tickets/screens/theatre_show_screen.dart';
 import '../screens/login_screen.dart';
 
 class Routes {
@@ -10,33 +16,77 @@ class Routes {
     initialLocation: RoutePath.login,
     routes: [
       GoRoute(
-        name: 'login',
+        name: RoutesName.login,
         path: RoutePath.login,
         builder: (context, state) {
           return const LoginScreen();
         },
       ),
       GoRoute(
-        name: 'register',
+        name: RoutesName.register,
         path: RoutePath.register,
         builder: (context, state) {
           return RegistrationScreen();
         },
       ),
       GoRoute(
-        name: 'bottomNavBar',
+        name: RoutesName.bottomNavBar,
         path: RoutePath.bottomNavBar,
         builder: (context, state) {
           return const BottomNavBar();
         },
       ),
       GoRoute(
-        name: 'movieDetailsScreen',
-        path: RoutePath.movieDetailsScreen,
+        name: RoutesName.seeAllMovies,
+        path: RoutePath.seeAllMovies,
         builder: (context, state) {
-          return const MovieDetailsScreen();
+          return const SeeAllMovies();
         },
       ),
+      GoRoute(
+        name: RoutesName.movieDetailsScreen,
+        path: RoutePath.movieDetailsScreen,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+          final movieTitle = extra?['movieTitle'] as String? ?? '';
+          return MovieDetailsScreen(movieName: movieTitle);
+        },
+      ),
+      GoRoute(
+        name: RoutesName.theatreShowScreen,
+        path: RoutePath.theatreShowScreen,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+          final movieTitle = extra?['movieTitle'] as String? ?? '';
+          return TheatreShowScreen(movieName: movieTitle);
+        },
+      ),
+      GoRoute(
+        name: RoutesName.theatreSeatingArrangement,
+        path: RoutePath.theatreSeatingArrangement,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+          final movieTitle = extra?['movieTitle'] as String? ?? '';
+          final showId = extra?['showId'] as String? ?? '';
+          final showsTiming = extra?['showsTiming'] as List<ShowTimeModel>;
+          return SeatingArrangement(
+            movieName: movieTitle,
+            showsTiming: showsTiming,
+            showId: showId,
+          );
+        },
+      ),
+      GoRoute(
+        name: RoutesName.bookingConfirmScreen,
+        path: RoutePath.bookingConfirmScreen,
+        builder: (context, state) {
+          // final extra = state.extra as Map<String, dynamic>?;
+          // final movieTitle = extra?['movieTitle'] as String? ?? '';
+          // final showId = extra?['showId'] as String? ?? '';
+          // final showsTiming = extra?['showsTiming'] as List<ShowTimeModel>;
+          return const ConfirmBooking();
+        },
+      )
     ],
   );
 

@@ -6,6 +6,7 @@ import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/core/validator.dart';
 import 'package:your_tickets/routes/routes_name.dart';
+import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/widgets/auth_login_button.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'package:your_tickets/widgets/text_and_button.dart';
@@ -55,7 +56,8 @@ class LoginScreen extends HookConsumerWidget {
               gapV15(),
               PrimaryButton(
                 label: 'Login',
-                onPressed: () => context.go(RoutePath.bottomNavBar),
+                onPressed: () =>
+                    context.pushReplacementNamed(RoutesName.bottomNavBar),
                 isLoading: false,
               ),
               gapV10(),

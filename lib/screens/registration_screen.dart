@@ -85,7 +85,7 @@ class RegistrationScreen extends StatelessWidget {
               ),
               gapV10(),
               TextAndButton(
-                  onPressed: () => context.go(RoutePath.login),
+                  onPressed: () => context.pushReplacementNamed(RoutesName.login),
                   text: 'Already have an account?',
                   buttonLabel: 'Login'),
             ],
