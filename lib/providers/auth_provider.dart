@@ -1,7 +1,11 @@
+import 'dart:developer';
+
+import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:your_tickets/routes/routes_name.dart';
 
 //Enums
-import '../enums/user_role_enum.dart';
 
 //Models
 import '../models/user_model.dart';
@@ -39,13 +43,11 @@ class AuthProvider extends StateNotifier<AuthState> {
 
   int get currentUserId => _currentUser!.userId!;
 
-  String get currentUserFullName => _currentUser!.fullName;
+  String get currentUserFullName => _currentUser!.name;
 
   String get currentUserEmail => _currentUser!.email;
 
-  String get currentUserAddress => _currentUser!.address;
-
-  String get currentUserContact => _currentUser!.contact;
+  String get currentUserContact => _currentUser!.phone;
 
   String get currentUserPassword => _password;
 
@@ -65,22 +67,35 @@ class AuthProvider extends StateNotifier<AuthState> {
     if (!authenticated || _currentUser == null || _password.isEmpty) {
       logout();
     } else {
-      state = AuthState.authenticated(fullName: _currentUser!.fullName);
+      state = AuthState.authenticated(fullName: _currentUser!.name);
     }
   }
 
-  Future<void> login({
-    required String email,
-    required String password,
-  }) async {
-    final data = {'email': email, 'password': password};
+  Future<void> login(
+      {required String phone,
+      required String password,
+      required BuildContext context}) async {
+    if (phone.startsWith('0')) phone = phone.substring(1);
+    phone = '+91$phone';
+    final data = {'phone': phone, 'password': password};
     state = const AuthState.authenticating();
     try {
       _currentUser = await _authRepository.sendLoginData(
         data: data,
-        updateTokenCallback: updateToken,
+        // updateTokenCallback: updateToken,
       );
-      state = AuthState.authenticated(fullName: _currentUser!.fullName);
+      state = AuthState.authenticated(fullName: _currentUser!.name);
+
+      log('state is $state');
+      state.maybeWhen(
+        authenticated: (fullName) {
+          context.pushReplacementNamed(RoutesName.bottomNavBar);
+        },
+        orElse: () {
+          log('not authenticated');
+        },
+      );
+
       _updatePassword(password);
       _updateAuthProfile();
     } on NetworkException catch (e) {
@@ -91,28 +106,29 @@ class AuthProvider extends StateNotifier<AuthState> {
   Future<void> register({
     required String email,
     required String password,
-    required String fullName,
-    required String contact,
-    required String address,
-    UserRole role = UserRole.API_USER,
+    required String name,
+    required String phone,
   }) async {
-    if (contact.startsWith('0')) contact = contact.substring(1);
-    contact = '+91$contact';
-    final user = UserModel(
-      userId: null,
-      fullName: fullName,
-      email: email,
-      address: address,
-      contact: contact,
-      role: role,
-    );
+    if (phone.startsWith('0')) phone = phone.substring(1);
+    phone = '+91$phone';
+
+    Map<String, dynamic> user = {
+      'name': name,
+      'phone': phone,
+      'email': email,
+      'password': password
+    };
+
+    log('user details :- $user');
+
     state = const AuthState.authenticating();
+    debugPrint('state is :- $state');
     try {
       _currentUser = await _authRepository.sendRegisterData(
-        data: user.toJson(),
-        updateTokenCallback: updateToken,
+        data: user,
+        // updateTokenCallback: updateToken,
       );
-      state = AuthState.authenticated(fullName: _currentUser!.fullName);
+      state = AuthState.authenticated(fullName: _currentUser!.name);
       _updatePassword(password);
       _updateAuthProfile();
     } on NetworkException catch (e) {

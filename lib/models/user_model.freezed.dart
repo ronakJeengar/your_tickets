@@ -22,11 +22,10 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 mixin _$UserModel {
   @JsonKey(includeIfNull: false)
   int? get userId => throw _privateConstructorUsedError;
-  String get fullName => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get contact => throw _privateConstructorUsedError;
-  UserRole get role => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email =>
+      throw _privateConstructorUsedError; // required String address,
+  String get phone => throw _privateConstructorUsedError;
 
   /// Serializes this UserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,11 +44,9 @@ abstract class $UserModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(includeIfNull: false) int? userId,
-      String fullName,
+      String name,
       String email,
-      String address,
-      String contact,
-      UserRole role});
+      String phone});
 }
 
 /// @nodoc
@@ -68,37 +65,27 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @override
   $Res call({
     Object? userId = freezed,
-    Object? fullName = null,
+    Object? name = null,
     Object? email = null,
-    Object? address = null,
-    Object? contact = null,
-    Object? role = null,
+    Object? phone = null,
   }) {
     return _then(_value.copyWith(
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int?,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as UserRole,
     ) as $Val);
   }
 }
@@ -113,11 +100,9 @@ abstract class _$$UserModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(includeIfNull: false) int? userId,
-      String fullName,
+      String name,
       String email,
-      String address,
-      String contact,
-      UserRole role});
+      String phone});
 }
 
 /// @nodoc
@@ -134,37 +119,27 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? userId = freezed,
-    Object? fullName = null,
+    Object? name = null,
     Object? email = null,
-    Object? address = null,
-    Object? contact = null,
-    Object? role = null,
+    Object? phone = null,
   }) {
     return _then(_$UserModelImpl(
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int?,
-      fullName: null == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      contact: null == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
-              as String,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
-              as UserRole,
     ));
   }
 }
@@ -174,11 +149,9 @@ class __$$UserModelImplCopyWithImpl<$Res>
 class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
       {@JsonKey(includeIfNull: false) required this.userId,
-      required this.fullName,
+      required this.name,
       required this.email,
-      required this.address,
-      required this.contact,
-      required this.role});
+      required this.phone});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -187,19 +160,16 @@ class _$UserModelImpl implements _UserModel {
   @JsonKey(includeIfNull: false)
   final int? userId;
   @override
-  final String fullName;
+  final String name;
   @override
   final String email;
+// required String address,
   @override
-  final String address;
-  @override
-  final String contact;
-  @override
-  final UserRole role;
+  final String phone;
 
   @override
   String toString() {
-    return 'UserModel(userId: $userId, fullName: $fullName, email: $email, address: $address, contact: $contact, role: $role)';
+    return 'UserModel(userId: $userId, name: $name, email: $email, phone: $phone)';
   }
 
   @override
@@ -208,18 +178,14 @@ class _$UserModelImpl implements _UserModel {
         (other.runtimeType == runtimeType &&
             other is _$UserModelImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.fullName, fullName) ||
-                other.fullName == fullName) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.role, role) || other.role == role));
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, userId, fullName, email, address, contact, role);
+  int get hashCode => Object.hash(runtimeType, userId, name, email, phone);
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -240,11 +206,9 @@ class _$UserModelImpl implements _UserModel {
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
       {@JsonKey(includeIfNull: false) required final int? userId,
-      required final String fullName,
+      required final String name,
       required final String email,
-      required final String address,
-      required final String contact,
-      required final UserRole role}) = _$UserModelImpl;
+      required final String phone}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -253,15 +217,11 @@ abstract class _UserModel implements UserModel {
   @JsonKey(includeIfNull: false)
   int? get userId;
   @override
-  String get fullName;
+  String get name;
   @override
-  String get email;
+  String get email; // required String address,
   @override
-  String get address;
-  @override
-  String get contact;
-  @override
-  UserRole get role;
+  String get phone;
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.

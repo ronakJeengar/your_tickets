@@ -54,7 +54,7 @@ final _dioServiceProvider = Provider<DioService>((ref) {
     interceptors: [
       ApiInterceptor(ref),
       if (kDebugMode) LoggingInterceptor(),
-      RefreshTokenInterceptor(dioClient: dio, ref: ref)
+      // RefreshTokenInterceptor(dioClient: dio, ref: ref)
     ],
   );
 });
@@ -70,31 +70,31 @@ final _authRepositoryProvider = Provider<AuthRepository>((ref) {
   return AuthRepository(apiService: apiService);
 });
 
-final _moviesRepositoryProvider = Provider<MoviesRepository>((ref) {
-  final apiService = ref.watch(_apiServiceProvider);
-  return MoviesRepository(apiService: apiService);
-});
-
-final _showsRepositoryProvider = Provider<ShowsRepository>((ref) {
-  final apiService = ref.watch(_apiServiceProvider);
-  return ShowsRepository(apiService: apiService);
-});
-
-final _theatersRepositoryProvider = Provider<TheatersRepository>((ref) {
-  final apiService = ref.watch(_apiServiceProvider);
-  return TheatersRepository(apiService: apiService);
-});
-
-final _bookingsRepositoryProvider = Provider<BookingsRepository>((ref) {
-  final apiService = ref.watch(_apiServiceProvider);
-  return BookingsRepository(apiService: apiService);
-});
-
-final _paymentsRepositoryProvider = Provider<PaymentsRepository>((ref) {
-  final apiService = ref.watch(_apiServiceProvider);
-  return PaymentsRepository(apiService: apiService);
-});
-
+// final _moviesRepositoryProvider = Provider<MoviesRepository>((ref) {
+//   final apiService = ref.watch(_apiServiceProvider);
+//   return MoviesRepository(apiService: apiService);
+// });
+//
+// final _showsRepositoryProvider = Provider<ShowsRepository>((ref) {
+//   final apiService = ref.watch(_apiServiceProvider);
+//   return ShowsRepository(apiService: apiService);
+// });
+//
+// final _theatersRepositoryProvider = Provider<TheatersRepository>((ref) {
+//   final apiService = ref.watch(_apiServiceProvider);
+//   return TheatersRepository(apiService: apiService);
+// });
+//
+// final _bookingsRepositoryProvider = Provider<BookingsRepository>((ref) {
+//   final apiService = ref.watch(_apiServiceProvider);
+//   return BookingsRepository(apiService: apiService);
+// });
+//
+// final _paymentsRepositoryProvider = Provider<PaymentsRepository>((ref) {
+//   final apiService = ref.watch(_apiServiceProvider);
+//   return PaymentsRepository(apiService: apiService);
+// });
+//
 //notifier providers
 final authProvider = StateNotifierProvider<AuthProvider, AuthState>((ref) {
   final authRepository = ref.watch(_authRepositoryProvider);
@@ -105,44 +105,44 @@ final authProvider = StateNotifierProvider<AuthProvider, AuthState>((ref) {
     keyValueStorageService: keyValueStorageService,
   );
 });
-
-final forgotPasswordProvider = StateNotifierProvider.autoDispose<
-    ForgotPasswordProvider, ForgotPasswordState>((ref) {
-  final authRepository = ref.watch(_authRepositoryProvider);
-  return ForgotPasswordProvider(
-    authRepository: authRepository,
-    initialState: const ForgotPasswordState.email(),
-  );
-});
-
-//data providers
-final moviesProvider = Provider<MoviesProvider>((ref) {
-  final moviesRepository = ref.watch(_moviesRepositoryProvider);
-  return MoviesProvider(moviesRepository);
-});
-
-final showsProvider = Provider<ShowsProvider>((ref) {
-  final showsRepository = ref.watch(_showsRepositoryProvider);
-  return ShowsProvider(showsRepository);
-});
-
-final theatersProvider = ChangeNotifierProvider<TheatersProvider>((ref) {
-  final theatersRepository = ref.watch(_theatersRepositoryProvider);
-  return TheatersProvider(theatersRepository);
-});
-
-final bookingsProvider = Provider<BookingsProvider>((ref) {
-  final bookingsRepository = ref.watch(_bookingsRepositoryProvider);
-  return BookingsProvider(
-    ref: ref,
-    bookingsRepository: bookingsRepository,
-  );
-});
-
-final paymentsProvider = Provider<PaymentsProvider>((ref) {
-  final paymentsRepository = ref.watch(_paymentsRepositoryProvider);
-  return PaymentsProvider(
-    ref: ref,
-    paymentsRepository: paymentsRepository,
-  );
-});
+//
+// final forgotPasswordProvider = StateNotifierProvider.autoDispose<
+//     ForgotPasswordProvider, ForgotPasswordState>((ref) {
+//   final authRepository = ref.watch(_authRepositoryProvider);
+//   return ForgotPasswordProvider(
+//     authRepository: authRepository,
+//     initialState: const ForgotPasswordState.email(),
+//   );
+// });
+//
+// //data providers
+// final moviesProvider = Provider<MoviesProvider>((ref) {
+//   final moviesRepository = ref.watch(_moviesRepositoryProvider);
+//   return MoviesProvider(moviesRepository);
+// });
+//
+// final showsProvider = Provider<ShowsProvider>((ref) {
+//   final showsRepository = ref.watch(_showsRepositoryProvider);
+//   return ShowsProvider(showsRepository);
+// });
+//
+// final theatersProvider = ChangeNotifierProvider<TheatersProvider>((ref) {
+//   final theatersRepository = ref.watch(_theatersRepositoryProvider);
+//   return TheatersProvider(theatersRepository);
+// });
+//
+// final bookingsProvider = Provider<BookingsProvider>((ref) {
+//   final bookingsRepository = ref.watch(_bookingsRepositoryProvider);
+//   return BookingsProvider(
+//     ref: ref,
+//     bookingsRepository: bookingsRepository,
+//   );
+// });
+//
+// final paymentsProvider = Provider<PaymentsProvider>((ref) {
+//   final paymentsRepository = ref.watch(_paymentsRepositoryProvider);
+//   return PaymentsProvider(
+//     ref: ref,
+//     paymentsRepository: paymentsRepository,
+//   );
+// });

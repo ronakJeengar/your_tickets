@@ -8,12 +8,10 @@ part of 'user_model.dart';
 
 _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
     _$UserModelImpl(
-      userId: (json['userId'] as num?)?.toInt(),
-      fullName: json['fullName'] as String,
+      userId: (json['_id'] as num?)?.toInt(),
+      name: json['name'] as String,
       email: json['email'] as String,
-      address: json['address'] as String,
-      contact: json['contact'] as String,
-      role: $enumDecode(_$UserRoleEnumMap, json['role']),
+      phone: json['phone'] as String,
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) {
@@ -25,17 +23,9 @@ Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) {
     }
   }
 
-  writeNotNull('userId', instance.userId);
-  val['fullName'] = instance.fullName;
+  writeNotNull('_id', instance.userId);
+  val['name'] = instance.name;
   val['email'] = instance.email;
-  val['address'] = instance.address;
-  val['contact'] = instance.contact;
-  val['role'] = _$UserRoleEnumMap[instance.role]!;
+  val['phone'] = instance.phone;
   return val;
 }
-
-const _$UserRoleEnumMap = {
-  UserRole.ADMIN: 'admin',
-  UserRole.API_USER: 'api_user',
-  UserRole.SUPER_USER: 'super_user',
-};

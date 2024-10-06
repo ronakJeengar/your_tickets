@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -77,7 +79,10 @@ class ApiInterceptor extends Interceptor {
     Response response,
     ResponseInterceptorHandler handler,
   ) {
-    final success = response.data['headers']['success'] == 1;
+    log('response ---------------- :- ${response.data}');
+    final success = response.data['success'];
+
+    log('success is :- $success');
 
     if (success) return handler.next(response);
 
