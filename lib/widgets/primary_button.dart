@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
@@ -21,10 +22,16 @@ class PrimaryButton extends StatelessWidget {
               elevation: 0,
               padding: const EdgeInsets.all(20),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
-              backgroundColor: Theme.of(context).primaryColor,
-              foregroundColor: Colors.white),
-          child: isLoading ? const CircularProgressIndicator() : Text(label)),
+                  borderRadius: BorderRadius.circular(50)),
+              backgroundColor: AppColors.yellowColor,
+              foregroundColor: AppColors.blackColor),
+          child: isLoading
+              ? const CircularProgressIndicator()
+              : Text(
+                  label,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w500),
+                )),
     );
   }
 }

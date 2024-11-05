@@ -9,8 +9,9 @@ class AuthState with _$AuthState {
 
   const factory AuthState.authenticating() = AUTHENTICATING;
 
-  const factory AuthState.authenticated({required String fullName}) =
-      AUTHENTICATED;
+  const factory AuthState.authenticated({
+    required String token,
+  }) = AUTHENTICATED;
 
   const factory AuthState.failed({required String reason}) = FAILED;
 }

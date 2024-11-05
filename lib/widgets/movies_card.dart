@@ -1,9 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
-
-import '../models/extra/movie_model.dart';
+import 'package:your_tickets/models/extra/movie_model.dart';
 
 class MoviesCard extends StatelessWidget {
   final MovieModel movieModel;
@@ -22,104 +21,74 @@ class MoviesCard extends StatelessWidget {
       child: GestureDetector(
         onTap: onPressed,
         child: Container(
-          width: 180,
+          width: 200,
+          constraints: const BoxConstraints(maxHeight: 500),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15), color: Colors.white),
+            borderRadius: BorderRadius.circular(15),
+            // color: Colors.white,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: CachedNetworkImage(
-                      imageUrl: movieModel.image,
-                      height: 240,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Container(
-                    height: 240,
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                  child: CachedNetworkImage(
+                    imageUrl: movieModel.image,
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.black.withOpacity(0.5),
-                          Colors.transparent
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                      ),
-                    ),
+                    fit: BoxFit.cover,
                   ),
-                ],
-              ),
-              gapV10(),
-              Container(
-                width: double.infinity,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                decoration: BoxDecoration(
-                  color: Colors.grey[100],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        const Icon(
-                          FontAwesomeIcons.solidStar,
-                          size: 16,
-                          color: Colors.amber,
-                        ),
-                        gapH10(),
-                        Text(
-                          movieModel.rating,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          movieModel.votesCount,
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87),
-                        ),
-                        gapH5(),
-                        const Text(
-                          'votes',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ],
                 ),
               ),
-              gapV10(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(
-                  movieModel.name,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      movieModel.name,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.yellowColor,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    gapV10(),
+                    iconWithDetail(
+                        icon: const Icon(Icons.camera, color: Colors.white),
+                        detail: movieModel.genre),
+                    gapV5(),
+                    iconWithDetail(
+                        icon: const Icon(Icons.calendar_month_sharp,
+                            color: Colors.white),
+                        detail: movieModel.releaseDate),
+                  ],
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Row iconWithDetail({required Widget icon, required String detail}) {
+    return Row(
+      children: [
+        icon,
+        gapH10(),
+        Text(
+          detail,
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -5,13 +5,14 @@ class Ticket {
   final String location;
   final int quantity;
   final String ticketType;
+  final String moviePoster;
 
-  Ticket({
-    required this.title,
-    required this.dateTime,
-    required this.language,
-    required this.location,
-    required this.quantity,
-    required this.ticketType,
-  });
+  Ticket(
+      {required this.title,
+      required this.dateTime,
+      required this.language,
+      required this.location,
+      required this.quantity,
+      required this.ticketType,
+      required this.moviePoster});
 }

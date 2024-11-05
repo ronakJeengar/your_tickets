@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 
 class ShowTime extends StatelessWidget {
   final String showTime;
@@ -13,26 +14,27 @@ class ShowTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color textColor = bookingStatus == 'Almost Full'
-        ? Colors.orange
+    Color bookingColor = bookingStatus == 'Almost Full'
+        ? AppColors.yellowColor
         : bookingStatus == 'Full'
-            ? Colors.grey
-            : Colors.green;
+            ? AppColors.lightGreyColor
+            : AppColors.lightWhiteColor;
 
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10)
+        color: AppColors.lightBlackColor,
+          border: Border.all(color: bookingColor),
+          borderRadius: BorderRadius.circular(30)
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(showTime, style: TextStyle(color: textColor)),
+          Text(showTime, style: TextStyle(color: bookingColor)),
           if (additionalService != null) ...[
             Text(
               additionalService!,
-              style: TextStyle(color: textColor),
+              style: TextStyle(color: bookingColor),
             ),
           ]
         ],

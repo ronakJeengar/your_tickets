@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/screens/home_screen.dart';
-import 'package:your_tickets/screens/order_screen.dart';
 import 'package:your_tickets/screens/profile_screen.dart';
-import 'package:your_tickets/screens/search_screen.dart';
-import 'package:your_tickets/widgets/bottom_nav_item.dart';
+import 'package:your_tickets/widgets/svg.dart';
+
+import 'movies_screen.dart';
+import 'tickets_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -17,8 +20,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> _children = [
     const HomeScreen(),
-    const SearchScreen(),
-    const OrderScreen(),
+    const TicketsScreen(),
+    const MoviesScreen(),
     const ProfileScreen(),
   ];
 
@@ -32,48 +35,47 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _children[currentIndex],
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(30),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 7.5,
-                offset: Offset(1, 1),
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              BottomNavItem(
-                onPressed: () => updateIndex(0),
-                icon: Icons.home,
-                color: currentIndex == 0 ? Colors.blue : Colors.grey,
-              ),
-              BottomNavItem(
-                onPressed: () => updateIndex(1),
-                icon: Icons.search,
-                color: currentIndex == 1 ? Colors.blue : Colors.grey,
-              ),
-              BottomNavItem(
-                onPressed: () => updateIndex(2),
-                icon: Icons.shopping_cart,
-                color: currentIndex == 2 ? Colors.blue : Colors.grey,
-              ),
-              BottomNavItem(
-                onPressed: () => updateIndex(3),
-                icon: Icons.person,
-                color: currentIndex == 3 ? Colors.blue : Colors.grey,
-              ),
-            ],
-          ),
+      bottomNavigationBar: Container(
+        color: AppColors.blackColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildNavItem(0, AppIcon.home, 'Home'),
+            _buildNavItem(1, AppIcon.ticket, 'Ticket'),
+            _buildNavItem(2, AppIcon.movie, 'Movie'),
+            _buildNavItem(3, AppIcon.profile, 'Profile'),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget _buildNavItem(int index, String icon, String label) {
+    final bool isSelected = currentIndex == index;
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: Svg.svgIcons(
+            assetName: icon,
+            height: 24,
+            width: 24,
+            color:
+                isSelected ? AppColors.yellowColor : AppColors.greyWhiteColor,
+          ),
+          onPressed: () => updateIndex(index),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            color:
+                isSelected ? AppColors.yellowColor : AppColors.greyWhiteColor,
+            fontSize: 10,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+      ],
     );
   }
 }

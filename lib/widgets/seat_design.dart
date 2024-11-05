@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 
 class SeatDesign extends StatelessWidget {
   final Color color;
@@ -9,11 +10,10 @@ class SeatDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40,
-      height: 50,
+      width: 30,
+      height: 30,
       margin: const EdgeInsets.symmetric(horizontal: 4.0),
       decoration: BoxDecoration(
-        // color: isSelected ? Colors.blue : seatCategories[seat.seatType],
         color: color,
         borderRadius: BorderRadius.circular(8),
         boxShadow: const [
@@ -27,10 +27,12 @@ class SeatDesign extends StatelessWidget {
       child: Center(
         child: Text(
           seatNumber,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+              color: color == AppColors.yellowColor
+                  ? AppColors.lightBlackColor
+                  : AppColors.lightWhiteColor),
         ),
       ),
     );

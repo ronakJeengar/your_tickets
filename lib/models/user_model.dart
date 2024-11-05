@@ -1,9 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../helper/typedefs.dart';
 
 part 'user_model.freezed.dart';
-
 part 'user_model.g.dart';
 
 @freezed

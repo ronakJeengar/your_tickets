@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:your_tickets/helper/typedefs.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 
 //Enums
@@ -38,7 +39,7 @@ class AuthProvider extends StateNotifier<AuthState> {
         _keyValueStorageService = keyValueStorageService,
         _ref = ref,
         super(const AuthState.unauthenticated()) {
-    init();
+    // init();
   }
 
   int get currentUserId => _currentUser!.userId!;
@@ -60,79 +61,71 @@ class AuthProvider extends StateNotifier<AuthState> {
     _keyValueStorageService.setAuthPassword(value);
   }
 
-  void init() async {
-    final authenticated = _keyValueStorageService.getAuthState();
-    _currentUser = _keyValueStorageService.getAuthUser();
-    _password = await _keyValueStorageService.getAuthPassword();
-    if (!authenticated || _currentUser == null || _password.isEmpty) {
-      logout();
-    } else {
-      state = AuthState.authenticated(fullName: _currentUser!.name);
-    }
-  }
+  // void init() async {
+  //   final authenticated = _keyValueStorageService.getAuthState();
+  //   _currentUser = _keyValueStorageService.getAuthUser();
+  //   _password = await _keyValueStorageService.getAuthPassword();
+  //   if (!authenticated || _currentUser == null || _password.isEmpty) {
+  //     logout();
+  //   } else {
+  //     state = AuthState.authenticated(fullName: _currentUser!.name);
+  //   }
+  // }
 
   Future<void> login(
-      {required String phone,
-      required String password,
-      required BuildContext context}) async {
-    if (phone.startsWith('0')) phone = phone.substring(1);
+      {required JSON loginUserData, required BuildContext context}) async {
+    String phone = loginUserData['phone'];
+    if (phone.startsWith('0')) {
+      phone = phone.substring(1);
+    }
     phone = '+91$phone';
-    final data = {'phone': phone, 'password': password};
-    state = const AuthState.authenticating();
+    // state = const AuthState.authenticating();
     try {
-      _currentUser = await _authRepository.sendLoginData(
-        data: data,
-        // updateTokenCallback: updateToken,
-      );
-      state = AuthState.authenticated(fullName: _currentUser!.name);
+      _currentUser = await _authRepository.login(data: loginUserData);
+      // state = AuthState.authenticated(fullName: _currentUser!.name);
 
-      log('state is $state');
       state.maybeWhen(
         authenticated: (fullName) {
-          context.pushReplacementNamed(RoutesName.bottomNavBar);
+          context.pushNamed(RoutesName.otp);
         },
         orElse: () {
           log('not authenticated');
         },
       );
 
-      _updatePassword(password);
+      _updatePassword(loginUserData['password']);
       _updateAuthProfile();
     } on NetworkException catch (e) {
       state = AuthState.failed(reason: e.message);
     }
   }
 
-  Future<void> register({
-    required String email,
-    required String password,
-    required String name,
-    required String phone,
-  }) async {
-    if (phone.startsWith('0')) phone = phone.substring(1);
+  Future<void> register(
+      {required JSON registerUserData, required BuildContext context}) async {
+    String phone = registerUserData['phone'];
+    if (phone.startsWith('0')) {
+      phone = phone.substring(1);
+    }
     phone = '+91$phone';
 
-    Map<String, dynamic> user = {
-      'name': name,
-      'phone': phone,
-      'email': email,
-      'password': password
-    };
-
-    log('user details :- $user');
-
-    state = const AuthState.authenticating();
-    debugPrint('state is :- $state');
+    // state = const AuthState.authenticating();
+    // debugPrint('state is :- $state');
     try {
-      _currentUser = await _authRepository.sendRegisterData(
-        data: user,
-        // updateTokenCallback: updateToken,
-      );
-      state = AuthState.authenticated(fullName: _currentUser!.name);
-      _updatePassword(password);
-      _updateAuthProfile();
+      _currentUser = await _authRepository.register(data: registerUserData);
+      // state = AuthState.authenticated(fullName: _currentUser!.name);
+      //   state.maybeWhen(
+      //     authenticated: (fullName) {
+      //     },
+      //     orElse: () {
+      //       log('not authenticated');
+      //     },
+      //   );
+      //
+      //   _updatePassword(registerUserData['password']);
+      //   _updateAuthProfile();
     } on NetworkException catch (e) {
-      state = AuthState.failed(reason: e.message);
+      log('error is : $e');
+      // state = AuthState.failed(reason: e.message);
     }
   }
 

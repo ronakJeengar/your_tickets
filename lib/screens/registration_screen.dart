@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/core/validator.dart';
+import 'package:your_tickets/helper/typedefs.dart';
 import 'package:your_tickets/providers/all_providers.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
@@ -26,7 +27,7 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
 
   final _cPController = TextEditingController();
 
-  final _mobileNoController = TextEditingController();
+  final _phoneController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -60,11 +61,12 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
                   hintText: 'Email',
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
-                  validator: (v) => Validator.validateEmail(v.toString().trim()),
+                  validator: (v) =>
+                      Validator.validateEmail(v.toString().trim()),
                 ),
                 gapV20(),
                 TextInputField(
-                  controller: _mobileNoController,
+                  controller: _phoneController,
                   hintText: 'Mobile No.',
                   prefixIcon: const Icon(Icons.phone),
                   keyboardType: TextInputType.phone,
@@ -100,13 +102,16 @@ class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
                   label: 'Sign Up',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      ref.read(authProvider.notifier).register(
-                        email: _emailController.text,
-                        password: _passwordController.text,
-                        name: _nameController.text,
-                        phone: _mobileNoController.text,
-                      );
+                      context.pushNamed(RoutesName.otp);
+                      // _formKey.currentState!.save();
+                      // JSON register = {
+                      //   'phone': _phoneController.text,
+                      //   'password': _passwordController.text,
+                      //   'email': _passwordController.text,
+                      //   'name': _nameController.text,
+                      // };
+                      // ref.read(authProvider.notifier).register(
+                      //     registerUserData: register, context: context);
                     }
                   },
                   isLoading: false,

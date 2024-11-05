@@ -50,9 +50,6 @@ class TermsAndConditions extends StatelessWidget {
               label: 'Okay',
               onPressed: () => context.pushNamed(
                     RoutesName.bookingConfirmScreen,
-                    // extra: {
-                    //   // 'movieTitle': movieName,
-                    // },
                   ),
               isLoading: false)
         ],

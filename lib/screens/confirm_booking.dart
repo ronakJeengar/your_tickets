@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/models/extra/ticket_model.dart';
 import 'package:your_tickets/models/extra/ticket_price.dart';
@@ -6,6 +7,7 @@ import 'package:your_tickets/widgets/amount_box.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
 import 'package:your_tickets/widgets/apply_offer.dart';
 import 'package:your_tickets/widgets/choose_payment_method_box.dart';
+import 'package:your_tickets/widgets/order_timer.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'package:your_tickets/widgets/ticket_details.dart';
 import 'package:your_tickets/widgets/user_details_box.dart';
@@ -22,6 +24,8 @@ class ConfirmBooking extends StatelessWidget {
       location: 'Grand Theatre Cinemas, Rajsamand, (screen 1)',
       quantity: 3,
       ticketType: 'M-Ticket',
+      moviePoster:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQji7VeicQwHSRawVGCcD5n_L6s1d0nAR6Mw&s',
     );
 
     TicketPrice ticketPrice = TicketPrice(
@@ -32,11 +36,11 @@ class ConfirmBooking extends StatelessWidget {
         totalPriceIncludingAll: 610.00);
 
     return Scaffold(
+      backgroundColor: AppColors.blackColor,
       appBar: const CommonAppBar(
         title: 'Confirm Booking',
       ),
       body: Container(
-        color: Colors.grey[300],
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
@@ -49,37 +53,22 @@ class ConfirmBooking extends StatelessWidget {
             const ApplyOffer(),
             gapV10(),
             const ChoosePaymentMethodBox(),
+            gapV10(),
+            const OrderTimer()
           ],
         ),
       ),
       bottomNavigationBar: Container(
         height: 90,
-        decoration: const BoxDecoration(color: Colors.white),
+        decoration: const BoxDecoration(color: AppColors.blackColor),
         padding: const EdgeInsets.all(10),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Total', style: TextStyle(fontSize: 14)),
-                gapV5(),
-                const Text('₹309.00',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-              ],
-            ),
-            SizedBox(
-              width: 200,
-              child: PrimaryButton(
-                label: 'Continue',
-                onPressed: () {},
-                isLoading: false,
-              ),
-            ),
-          ],
+        child: SizedBox(
+          width: 200,
+          child: PrimaryButton(
+            label: 'Continue',
+            onPressed: () {},
+            isLoading: false,
+          ),
         ),
       ),
     );

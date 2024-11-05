@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/models/extra/theatre_model.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
@@ -247,6 +248,7 @@ class TheatreShowScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: AppColors.blackColor,
       appBar: CommonAppBar(
         title: movieName,
         actions: [
@@ -255,25 +257,27 @@ class TheatreShowScreen extends StatelessWidget {
               onPressed: () {}, icon: const Icon(FontAwesomeIcons.filter)),
         ],
       ),
-      body: Column(
-        children: [
-          gapV10(),
-          const CalenderView(),
-          gapV10(),
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(10),
-              itemCount: theatres.length,
-              itemBuilder: (context, index) {
-                final theatre = theatres[index];
-                return TheatreWithShow(
-                  theatre: theatre,
-                  movieName: movieName,
-                );
-              },
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            gapV10(),
+            const CalenderView(),
+            gapV10(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: theatres.length,
+                itemBuilder: (context, index) {
+                  final theatre = theatres[index];
+                  return TheatreWithShow(
+                    theatre: theatre,
+                    movieName: movieName,
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_images.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/models/extra/seats_model.dart';
-import 'package:your_tickets/models/seat_model.dart';
 import 'package:your_tickets/models/extra/theatre_model.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
@@ -26,9 +27,9 @@ class SeatingArrangement extends StatefulWidget {
 
 class _SeatingArrangementState extends State<SeatingArrangement> {
   final Map<String, Color> seatCategories = {
-    'Normal': Colors.green[300]!,
-    'Royal': Colors.purple[400]!,
-    'Recliner': Colors.red[400]!,
+    'Available': AppColors.lightBlackColor,
+    'Reserved': AppColors.lightBrownColor,
+    'Selected': AppColors.yellowColor,
   };
 
   final int totalSeats = 300;
@@ -66,189 +67,195 @@ class _SeatingArrangementState extends State<SeatingArrangement> {
         List.generate(totalRows, (index) => String.fromCharCode(65 + index));
 
     return Scaffold(
-      appBar: CommonAppBar(
-        title: movieName,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 65,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: showsTimings.length,
-                itemBuilder: (context, index) {
-                  final show = showsTimings[index];
-                  bool isSelected = selectedIndex == index;
-                  return Container(
-                    width: 150,
-                    padding: const EdgeInsets.all(5),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = index;
-                        });
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: isSelected ? Colors.blue : Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: ShowTime(
-                          bookingStatus: show.showBookingStatus,
-                          showTime: show.showTime,
-                          additionalService: show.additionalService,
-                        ),
+        backgroundColor: AppColors.blackColor,
+        appBar: CommonAppBar(
+          title: movieName,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                AppImages.screen,
+                width: double.infinity,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+              Expanded(
+                child: ListView(
+                  children: [
+                    gapV20(),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Column(
+                        children: List.generate(totalRows, (rowIndex) {
+                          final start = rowIndex * seatsPerRow;
+                          final end =
+                              (start + seatsPerRow).clamp(0, totalSeats);
+                          final rowSeats = seatTypes.sublist(start, end);
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: rowSeats.map((seat) {
+                                final index = seat.index;
+                                final seatNumber =
+                                    '${rowLabels[rowIndex]} ${index % seatsPerRow + 1}';
+                                final isSelected =
+                                    selectedSeats.contains(index);
+
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      if (selectedSeats.contains(index)) {
+                                        selectedSeats.remove(index);
+                                      } else if (selectedSeats.length <
+                                          maxSelectedSeats) {
+                                        selectedSeats.add(index);
+                                      } else {
+                                        selectedSeats
+                                            .remove(selectedSeats.first);
+                                        selectedSeats.add(index);
+                                      }
+                                    });
+                                  },
+                                  child: SeatDesign(
+                                    color: isSelected
+                                        ? AppColors.yellowColor
+                                        : AppColors.lightBlackColor,
+                                    seatNumber: seatNumber,
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          );
+                        }),
                       ),
                     ),
-                  );
-                },
-              ),
-            ),
-            const Text(
-              'Seat Categories',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            gapV10(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: seatCategories.entries.map((entry) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          color: entry.value,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Text(entry.key),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-            gapV20(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: List.generate(totalRows, (rowIndex) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: SizedBox(
-                            height: 50,
-                            child: Center(
-                              child: Text(
-                                rowLabels[rowIndex],
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+                    gapV20(),
+                    SizedBox(
+                      height: 70,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: showsTimings.length,
+                        itemBuilder: (context, index) {
+                          final show = showsTimings[index];
+                          bool isSelected = selectedIndex == index;
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                              });
+                            },
+                            child: Container(
+                              width: 150,
+                              padding: const EdgeInsets.all(5),
+                              margin: const EdgeInsets.only(right: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                border: Border.all(
+                                  color: isSelected
+                                      ? AppColors.yellowColor
+                                      : AppColors.lightBlackColor,
                                 ),
                               ),
+                              child: ShowTime(
+                                bookingStatus: show.showBookingStatus,
+                                showTime: show.showTime,
+                                additionalService: show.additionalService,
+                              ),
                             ),
+                          );
+                        },
+                      ),
+                    ),
+                    gapV10(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: seatCategories.entries.map((entry) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 20,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                  color: entry.value,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                entry.key,
+                                style: const TextStyle(
+                                  color: AppColors.lightWhiteColor,
+                                ),
+                              ),
+                            ],
                           ),
                         );
-                      }),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Column(
-                          children: List.generate(totalRows, (rowIndex) {
-                            final start = rowIndex * seatsPerRow;
-                            final end =
-                                (start + seatsPerRow).clamp(0, totalSeats);
-                            final rowSeats = seatTypes.sublist(start, end);
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: rowSeats.map((seat) {
-                                  final index = seat.index;
-                                  final seatNumber = index % seatsPerRow + 1;
-                                  final isSelected =
-                                      selectedSeats.contains(index);
-
-                                  return GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          if (selectedSeats.contains(index)) {
-                                            selectedSeats.remove(index);
-                                          } else if (selectedSeats.length <
-                                              maxSelectedSeats) {
-                                            selectedSeats.add(index);
-                                          } else {
-                                            selectedSeats
-                                                .remove(selectedSeats.first);
-                                            selectedSeats.add(index);
-                                          }
-                                        });
-                                      },
-                                      child: SeatDesign(
-                                          color: isSelected
-                                              ? Colors.blue
-                                              : Colors.white,
-                                          seatNumber: '$seatNumber'));
-                                }).toList(),
-                              ),
-                            );
-                          }),
-                        ),
-                      ),
+                      }).toList(),
                     ),
                   ],
                 ),
               ),
-            ),
-            gapV20(),
-            // Text(
-            //   'Selected Seats: ${selectedSeats.length}',
-            //   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            // ),
-            // const SizedBox(height: 10),
-            // Wrap(
-            //   spacing: 8.0,
-            //   children: selectedSeats.map((index) {
-            //     final row = _getRowLabel(index, seatsPerRow);
-            //     final seatNumber = index % seatsPerRow + 1;
-            //     return Chip(
-            //       label: Text('$row$seatNumber'),
-            //     );
-            //   }).toList(),
-            // ),
-            // const SizedBox(height: 20),
-            if (selectedSeats.isNotEmpty)
-              PrimaryButton(
-                  label: 'Pay ₹ ${_getTotalPrice()}',
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20)),
-                      ),
-                      builder: (BuildContext context) {
-                        return const TermsAndConditions();
-                      },
-                    );
-                  },
-                  isLoading: false)
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+        bottomNavigationBar: selectedSeats.isNotEmpty
+            ? Container(
+                padding: const EdgeInsets.all(10),
+                height: 90,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Total',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.lightWhiteColor,
+                            ),
+                          ),
+                          Text(
+                            '₹ ${_getTotalPrice()}',
+                            style: const TextStyle(
+                              fontSize: 24,
+                              color: AppColors.yellowColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: PrimaryButton(
+                        label: 'Buy Tickets',
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20),
+                              ),
+                            ),
+                            builder: (BuildContext context) {
+                              return const TermsAndConditions();
+                            },
+                          );
+                        },
+                        isLoading: false,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            : const SizedBox.shrink());
   }
 
   List<SeatsModel> _assignSeatCategories(int totalSeats) {
@@ -283,11 +290,6 @@ class _SeatingArrangementState extends State<SeatingArrangement> {
 
     return seatTypes;
   }
-
-  // String _getRowLabel(int index, int seatsPerRow) {
-  //   final rowIndex = index ~/ seatsPerRow;
-  //   return String.fromCharCode(65 + rowIndex);
-  // }
 
   double _getTotalPrice() {
     double totalPrice = 0;

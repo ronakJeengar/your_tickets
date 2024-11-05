@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 
 class ReadMoreText extends StatefulWidget {
   final String text;
@@ -24,12 +25,12 @@ class _ReadMoreTextState extends State<ReadMoreText> {
             ? widget.text
             : widget.text.substring(0, widget.charLimit) +
                 (isTextLong ? '...' : ''),
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(color: AppColors.whiteColor, fontSize: 16),
         children: isTextLong
             ? [
                 TextSpan(
-                  text: _isExpanded ? 'less' : 'more',
-                  style: const TextStyle(color: Colors.blue),
+                  text: _isExpanded ? 'read less' : 'read more',
+                  style: const TextStyle(color: Colors.yellow),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       setState(() {

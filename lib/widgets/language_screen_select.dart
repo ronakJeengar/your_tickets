@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
-import 'package:your_tickets/routes/routes.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/widgets/select_chip.dart';
 
@@ -12,7 +12,14 @@ class LanguageScreenSelect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      decoration: const BoxDecoration(
+        color: AppColors.lightBlackColor,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+      ),
       padding: const EdgeInsets.all(10),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -23,24 +30,24 @@ class LanguageScreenSelect extends StatelessWidget {
             style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.normal,
-                color: Colors.black),
+                color: AppColors.lightWhiteColor),
           ),
           gapV10(),
           const Text('Select language and format',
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black)),
+                  color: AppColors.lightWhiteColor)),
           gapV10(),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             decoration: BoxDecoration(
-              color: Colors.grey[200],
+              color: AppColors.lighterGreyColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: const Text(
               'English',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, color: AppColors.lightBlackColor),
             ),
           ),
           gapV10(),

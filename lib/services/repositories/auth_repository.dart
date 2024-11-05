@@ -17,17 +17,14 @@ class AuthRepository {
 
   AuthRepository({required ApiService apiService}) : _apiService = apiService;
 
-  Future<UserModel> sendLoginData({
-    required JSON data,
-    // required void Function(String newToken) updateTokenCallback,
-  }) async {
+  Future<UserModel> login({required JSON data}) async {
     log('------------------');
     return await _apiService.setData<UserModel>(
       endpoint: ApiEndpoint.auth(AuthEndpoint.LOGIN),
       data: data,
       requiresAuthToken: false,
       converter: (response) {
-        log('response is :- ${response['user']}');
+        log('response is :- ${response['data']}');
         // updateTokenCallback(response['body']['token'] as String);
         // return UserModel.fromJson(response['body'] as JSON);
         log('response is :- ${response['user']}');
@@ -37,10 +34,7 @@ class AuthRepository {
     );
   }
 
-  Future<UserModel> sendRegisterData({
-    required JSON data,
-    // required void Function(String newToken) updateTokenCallback,
-  }) async {
+  Future<UserModel> register({required JSON data}) async {
     log('------------------');
     log('data $data');
     return await _apiService.setData<UserModel>(

@@ -1,10 +1,12 @@
 import 'package:go_router/go_router.dart';
+import 'package:your_tickets/models/extra/movie_model.dart';
 import 'package:your_tickets/models/extra/theatre_model.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/screens/bottom_nav_bar.dart';
 import 'package:your_tickets/screens/confirm_booking.dart';
 import 'package:your_tickets/screens/movie_details_screen.dart';
+import 'package:your_tickets/screens/otp_screen.dart';
 import 'package:your_tickets/screens/registration_screen.dart';
 import 'package:your_tickets/screens/seating_arrangement.dart';
 import 'package:your_tickets/screens/see_all_movies.dart';
@@ -26,7 +28,14 @@ class Routes {
         name: RoutesName.register,
         path: RoutePath.register,
         builder: (context, state) {
-          return RegistrationScreen();
+          return const RegistrationScreen();
+        },
+      ),
+      GoRoute(
+        name: RoutesName.otp,
+        path: RoutePath.otp,
+        builder: (context, state) {
+          return const OtpScreen();
         },
       ),
       GoRoute(
@@ -48,10 +57,11 @@ class Routes {
         path: RoutePath.movieDetailsScreen,
         builder: (context, state) {
           final extra = state.extra as Map<String, dynamic>?;
-          final movieTitle = extra?['movieTitle'] as String? ?? '';
-          return MovieDetailsScreen(movieName: movieTitle);
+          final movieModel = extra?['movie'] as MovieModel?;
+          return MovieDetailsScreen(movie: movieModel!);
         },
       ),
+
       GoRoute(
         name: RoutesName.theatreShowScreen,
         path: RoutePath.theatreShowScreen,
