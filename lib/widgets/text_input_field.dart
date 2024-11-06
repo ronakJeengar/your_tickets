@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 
 class TextInputField extends StatelessWidget {
   final String hintText;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextEditingController controller;
   final TextInputType keyboardType;
@@ -12,7 +13,7 @@ class TextInputField extends StatelessWidget {
   const TextInputField(
       {super.key,
       required this.hintText,
-      required this.prefixIcon,
+      this.prefixIcon,
       this.suffixIcon,
       required this.controller,
       required this.keyboardType,
@@ -26,16 +27,47 @@ class TextInputField extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: obscureText,
       validator: validator,
+      style: const TextStyle(color: AppColors.lightWhiteColor, fontSize: 16),
       decoration: InputDecoration(
-          hintText: hintText,
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+        contentPadding: const EdgeInsets.only(top: 10),
+        hintText: hintText,
+        hintStyle:
+            const TextStyle(fontSize: 16, color: AppColors.lightWhiteColor),
+        prefixIcon: prefixIcon != null
+            ? Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: prefixIcon,
+              )
+            : null,
+        suffixIcon: suffixIcon,
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.lightWhiteColor,
+            width: 1,
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-          )),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.lightWhiteColor,
+            width: 1,
+          ),
+        ),
+        errorBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.lightWhiteColor,
+            width: 1,
+          ),
+        ),
+        focusedErrorBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.lightWhiteColor,
+            width: 1,
+          ),
+        ),
+        errorStyle: const TextStyle(
+          color: AppColors.yellowColor,
+        ),
+      ),
     );
   }
 }

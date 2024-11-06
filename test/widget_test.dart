@@ -16,7 +16,7 @@ void main() {
       router = GoRouter(
         initialLocation: '/',
         routes: [
-          GoRoute(path: '/', builder: (context, state) => const LoginScreen()),
+          GoRoute(path: '/', builder: (context, state) =>  LoginScreen()),
           GoRoute(
               path: RoutePath.bottomNavBar,
               builder: (context, state) => const Scaffold(

@@ -5,23 +5,31 @@ import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/screens/bottom_nav_bar.dart';
 import 'package:your_tickets/screens/confirm_booking.dart';
+import 'package:your_tickets/screens/dashboard_screen.dart';
+import 'package:your_tickets/screens/login_screen.dart';
 import 'package:your_tickets/screens/movie_details_screen.dart';
 import 'package:your_tickets/screens/otp_screen.dart';
 import 'package:your_tickets/screens/registration_screen.dart';
 import 'package:your_tickets/screens/seating_arrangement.dart';
 import 'package:your_tickets/screens/see_all_movies.dart';
 import 'package:your_tickets/screens/theatre_show_screen.dart';
-import '../screens/login_screen.dart';
 
 class Routes {
   static GoRouter router = GoRouter(
-    initialLocation: RoutePath.login,
+    initialLocation: RoutePath.dashboard,
     routes: [
+      GoRoute(
+        name: RoutesName.dashboard,
+        path: RoutePath.dashboard,
+        builder: (context, state) {
+          return const DashboardScreen();
+        },
+      ),
       GoRoute(
         name: RoutesName.login,
         path: RoutePath.login,
         builder: (context, state) {
-          return const LoginScreen();
+          return LoginScreen();
         },
       ),
       GoRoute(
@@ -61,7 +69,6 @@ class Routes {
           return MovieDetailsScreen(movie: movieModel!);
         },
       ),
-
       GoRoute(
         name: RoutesName.theatreShowScreen,
         path: RoutePath.theatreShowScreen,
@@ -100,21 +107,21 @@ class Routes {
     ],
   );
 
-  static void pushNamed(String routeName, {dynamic args}) {
-    router.pushNamed(routeName);
-  }
-
-  static void pop([dynamic result]) {
-    router.pop(result);
-  }
-
-  static void popUntil(String routeName) {
-    router.goNamed(routeName);
-  }
-
-  static void popUntilRoot() {
-    while (router.canPop()) {
-      router.pop();
-    }
-  }
+  // static void pushNamed(String routeName, {dynamic args}) {
+  //   router.pushNamed(routeName);
+  // }
+  //
+  // static void pop([dynamic result]) {
+  //   router.pop(result);
+  // }
+  //
+  // static void popUntil(String routeName) {
+  //   router.goNamed(routeName);
+  // }
+  //
+  // static void popUntilRoot() {
+  //   while (router.canPop()) {
+  //     router.pop();
+  //   }
+  // }
 }

@@ -1,107 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/core/validator.dart';
 import 'package:your_tickets/routes/routes_name.dart';
-import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
 import 'package:your_tickets/widgets/auth_login_button.dart';
+import 'package:your_tickets/widgets/horizontal_divider.dart';
+import 'package:your_tickets/widgets/or_line.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
-import 'package:your_tickets/widgets/text_and_button.dart';
+import 'package:your_tickets/widgets/svg.dart';
 import 'package:your_tickets/widgets/text_input_field.dart';
 
-class LoginScreen extends HookConsumerWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
+
+  final formKey = GlobalKey<FormState>();
+  final phoneController = TextEditingController();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = useMemoized(() => GlobalKey<FormState>());
-    final phoneController = useTextEditingController();
-    final passwordController = useTextEditingController();
-
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CommonAppBar(title: 'Login', centerTitle: false),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Form(
-              key: formKey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const FlutterLogo(size: 250),
-                  gapV20(),
-                  TextInputField(
-                    controller: phoneController,
-                    hintText: 'phone',
-                    prefixIcon: const Icon(Icons.email),
-                    validator: (v) =>
-                        Validator.validateMobileNumber(v.toString().trim()),
-                    keyboardType: TextInputType.phone,
-                  ),
-                  gapV15(),
-                  TextInputField(
-                    hintText: 'Password',
-                    prefixIcon: const Icon(Icons.password),
-                    controller: passwordController,
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.remove_red_eye_outlined),
-                    ),
-                    obscureText: true,
-                    validator: (v) =>
-                        Validator.validatePassword(v.toString().trim()),
-                    keyboardType: TextInputType.text,
-                  ),
-                  gapV15(),
-                  PrimaryButton(
-                    label: 'Login',
-                    onPressed: () => context.pushNamed(RoutesName.otp),
-                    isLoading: false,
-                  ),
-                  gapV10(),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Expanded(
-                        child: Divider(
-                          thickness: 1,
-                          height: 0,
-                          color: Colors.black,
-                        ),
-                      ),
-                      gapH5(),
-                      const Text('Or Continue with'),
-                      gapH5(),
-                      const Expanded(
-                        child: Divider(
-                          thickness: 1,
-                          height: 0,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                  gapV10(),
-                  AuthLoginButton(
-                    icon: AppIcon.google,
-                    onPressed: () {},
-                    label: 'Sign in with Google',
-                  ),
-                  TextAndButton(
-                    onPressed: () => context.go(RoutePath.register),
-                    text: 'Don\'t have an account?',
-                    buttonLabel: 'Sign Up',
-                  ),
-                ],
+      backgroundColor: AppColors.blackColor,
+      appBar: const CommonAppBar(title: 'Sign In', centerTitle: true),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Form(
+          key: formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: Column(
+            children: [
+              TextInputField(
+                controller: phoneController,
+                hintText: 'enter phone number',
+                prefixIcon: Svg.svgIcons(
+                  assetName: AppIcon.phone,
+                  height: 25,
+                  width: 25,
+                ),
+                validator: (v) =>
+                    Validator.validateMobileNumber(v.toString().trim()),
+                keyboardType: TextInputType.phone,
               ),
-            ),
+              gapV15(),
+              PrimaryButton(
+                label: 'Login',
+                onPressed: () => context.pushNamed(RoutesName.otp),
+                isLoading: false,
+              ),
+              const Spacer(),
+              const OrLine(),
+              gapV10(),
+              AuthLoginButton(
+                icon: AppIcon.google,
+                onPressed: () {},
+                label: 'Sign in with Google',
+              ),
+              gapV10(),
+              const Text(
+                  'By sign in or sign up, you agree to our Terms of Service \n and Privacy Policy.',
+                  style:
+                      TextStyle(fontSize: 12, color: AppColors.whiteGreyColor), textAlign: TextAlign.center,)
+            ],
           ),
         ),
       ),

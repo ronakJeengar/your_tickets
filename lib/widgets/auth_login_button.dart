@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/widgets/svg.dart';
 
 class AuthLoginButton extends StatelessWidget {
@@ -25,10 +26,10 @@ class AuthLoginButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(20.0),
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.white),
-        label: Text(label),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            backgroundColor: AppColors.lightBlackColor,
+            foregroundColor: AppColors.lightWhiteColor),
+        label: Text(label,style: const TextStyle(color: AppColors.lightWhiteColor, fontSize: 14),),
         icon: Svg.svgIcons(assetName: icon, height: height, width: width),
       ),
     );

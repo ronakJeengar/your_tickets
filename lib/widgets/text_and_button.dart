@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
 
 class TextAndButton extends StatelessWidget {
@@ -17,9 +18,19 @@ class TextAndButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(text),
+        Text(
+          text,
+          style:
+              const TextStyle(fontSize: 14, color: AppColors.lightWhiteColor),
+        ),
         gapH5(),
-        TextButton(onPressed: onPressed, child: Text(buttonLabel))
+        TextButton(
+            onPressed: onPressed,
+            child: Text(
+              buttonLabel,
+              style: const TextStyle(
+                  fontSize: 14, color: AppColors.lightWhiteColor),
+            ))
       ],
     );
   }

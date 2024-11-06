@@ -1,8 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
+import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
-import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
@@ -15,109 +17,126 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
-  final pinController = TextEditingController();
+  final TextEditingController pinController = TextEditingController();
+
+  // Define a base pin theme
+  final PinTheme basePinTheme = PinTheme(
+    width: 52,
+    height: 72,
+    textStyle: const TextStyle(
+      fontSize: 24,
+      color: AppColors.lightWhiteColor,
+      fontWeight: FontWeight.bold,
+    ),
+    decoration: BoxDecoration(
+      color: AppColors.lightBrownColor,
+      borderRadius: BorderRadius.circular(8),
+      border: Border.all(color: AppColors.yellowColor),
+    ),
+  );
+
+  late Timer _timer;
+  int _remainingTime = 60;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_remainingTime > 0) {
+        setState(() {
+          _remainingTime--;
+        });
+      } else {
+        _timer.cancel();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  String get _formattedTime {
+    int minutes = _remainingTime ~/ 60;
+    int seconds = _remainingTime % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.blackColor,
       appBar: const CommonAppBar(title: 'Verify OTP'),
-      body: Container(
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Confirm Your OTP',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+            const Text(
+              'Confirm Your OTP',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 36,
+                color: AppColors.yellowColor,
               ),
             ),
             gapV10(),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'You just need to enter the OTP send to your registered no.',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            const Text(
+              'You just need to enter the OTP sent to your registered number.',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: AppColors.lightWhiteColor,
               ),
             ),
-            gapV10(),
-            Pinput(
-              length: 6,
-              controller: pinController,
-              separatorBuilder: (index) => const SizedBox(width: 25),
-              defaultPinTheme: PinTheme(
-                width: 56,
-                height: 56,
-                textStyle: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+            gapV20(),
+            Center(
+              child: Pinput(
+                length: 6,
+                controller: pinController,
+                separatorBuilder: (_) => const SizedBox(width: 25),
+                defaultPinTheme: basePinTheme,
+                focusedPinTheme: basePinTheme.copyWith(
+                  decoration: basePinTheme.decoration!.copyWith(
+                    border: Border.all(color: AppColors.yellowColor, width: 2),
+                  ),
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.grey.shade300),
-                ),
+                submittedPinTheme: basePinTheme,
+                validator: (value) =>
+                    value == '123456' ? null : 'Pin is incorrect',
+                hapticFeedbackType: HapticFeedbackType.lightImpact,
+                onCompleted: (pin) => debugPrint('onCompleted: $pin'),
+                onChanged: (value) => debugPrint('onChanged: $value'),
               ),
-              focusedPinTheme: PinTheme(
-                width: 56,
-                height: 56,
-                textStyle: TextStyle(
-                  fontSize: 24,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                      color: Theme.of(context).primaryColor, width: 2),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.blue.withOpacity(0.2),
-                      spreadRadius: 1,
-                      blurRadius: 5,
-                    ),
-                  ],
-                ),
-              ),
-              submittedPinTheme: PinTheme(
-                width: 56,
-                height: 56,
-                textStyle: TextStyle(
-                  fontSize: 24,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Theme.of(context).primaryColor),
-                ),
-              ),
-              validator: (value) {
-                return value == '123456' ? null : 'Pin is incorrect';
-              },
-              hapticFeedbackType: HapticFeedbackType.lightImpact,
-              onCompleted: (pin) {
-                debugPrint('onCompleted: $pin');
-              },
-              onChanged: (value) {
-                debugPrint('onChanged: $value');
-              },
             ),
-
-            gapV10(),
-            const Align(
+            gapV20(),
+             Align(
               alignment: Alignment.centerRight,
-              child: Text('00:59'),
+              child: Text(
+                _formattedTime,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.lightWhiteColor,
+                ),
+              ),
             ),
-            gapV10(),
-            SizedBox(
-              width: 200,
-              child: PrimaryButton(
-                label: 'Verify OTP',
-                onPressed: () => context.go(RoutePath.bottomNavBar),
-                isLoading: false,
+            gapV20(),
+            Center(
+              child: SizedBox(
+                width: 200,
+                child: PrimaryButton(
+                  label: 'Verify OTP',
+                  onPressed: () => context.go(RoutePath.bottomNavBar),
+                  isLoading: false,
+                ),
               ),
             ),
           ],

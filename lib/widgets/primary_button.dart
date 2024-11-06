@@ -5,12 +5,18 @@ class PrimaryButton extends StatelessWidget {
   final String label;
   final Function() onPressed;
   final bool isLoading;
+  final Color backgroundColor;
+  final Color foregroundColor;
+  final Color borderColor;
 
   const PrimaryButton(
       {super.key,
       required this.label,
       required this.onPressed,
-      required this.isLoading});
+      required this.isLoading,
+      this.backgroundColor = AppColors.yellowColor,
+      this.foregroundColor = AppColors.blackColor,
+      this.borderColor = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +28,10 @@ class PrimaryButton extends StatelessWidget {
               elevation: 0,
               padding: const EdgeInsets.all(20),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50)),
-              backgroundColor: AppColors.yellowColor,
-              foregroundColor: AppColors.blackColor),
+                  borderRadius: BorderRadius.circular(50),
+                  side: BorderSide(color: borderColor)),
+              backgroundColor: backgroundColor,
+              foregroundColor: foregroundColor),
           child: isLoading
               ? const CircularProgressIndicator()
               : Text(
