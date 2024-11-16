@@ -1,15 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_dimes.dart';
+import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/models/extra/carousel_item.dart';
 import 'package:your_tickets/models/extra/movie_model.dart';
 import 'package:your_tickets/models/offer_model.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/widgets/carasoul.dart';
+import 'package:your_tickets/widgets/icons_button.dart';
+import 'package:your_tickets/widgets/locations_bottom_sheet.dart';
 import 'package:your_tickets/widgets/movies_card.dart';
 import 'package:your_tickets/widgets/news_card.dart';
 import 'package:your_tickets/widgets/offer_card.dart';
 import 'package:your_tickets/widgets/search_field.dart';
+import 'package:your_tickets/widgets/svg.dart';
 import 'package:your_tickets/widgets/title_with_see_all.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -179,6 +187,8 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
+  String location = 'Kankroli';
+
   List<OfferModel> offers = [
     OfferModel(
       id: '001',
@@ -264,16 +274,36 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         surfaceTintColor: Colors.black,
-        toolbarHeight: 75,
+        toolbarHeight: AppDimes.eighty,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Hi, Username'),
             gapV5(),
-            const Text(
-              'Welcome Back',
-              style: TextStyle(fontSize: 28),
-            ),
+            // const Text(
+            //   'Welcome Back',
+            //   style: TextStyle(fontSize: 28),
+            // ),
+            IconsButton(
+                label: location,
+                icon: Svg.svgIcons(
+                    assetName: AppIcon.location,
+                    height: AppDimes.twenty,
+                    width: AppDimes.twenty,
+                    color: AppColors.lightWhiteColor),
+                onTap: () async {
+                  final selectedLocation = await showModalBottomSheet(
+                      context: context,
+                      builder: (ctx) {
+                        return LocationsBottomSheet(
+                          location: location,
+                        );
+                      });
+                  setState(() {
+                    location = selectedLocation;
+                  });
+                  log('selected location :- ${selectedLocation.runtimeType}');
+                }),
           ],
         ),
         actions: [
@@ -281,7 +311,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 20, bottom: 10),
+        padding:
+            const EdgeInsets.only(top: AppDimes.twenty, bottom: AppDimes.ten),
         child: Column(
           children: [
             SearchTextField(searchController: searchController),
@@ -312,7 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TitleWithSeeAll(title: 'Promo & Discount', onTap: () {}),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(AppDimes.ten),
               child: SizedBox(
                 height: 200,
                 child: ListView.builder(
@@ -321,7 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (ctx, index) {
                     final offer = offers[index];
                     return Padding(
-                      padding: const EdgeInsets.only(right: 10),
+                      padding: const EdgeInsets.only(right: AppDimes.ten),
                       child: OfferCard(
                         offer: offer,
                         onPressed: () {},

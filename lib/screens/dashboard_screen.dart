@@ -4,9 +4,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_dimes.dart';
 import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/routes/routes_name.dart';
+import 'package:your_tickets/widgets/icons_button.dart';
 import 'package:your_tickets/widgets/language_bottom_sheet.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'package:your_tickets/widgets/svg.dart';
@@ -72,37 +74,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: const Text(
                 'YOUR TICKETS',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: AppDimes.thirtyTwo,
                   fontWeight: FontWeight.bold,
                   color: AppColors.lightWhiteColor,
-                  letterSpacing: 2,
+                  letterSpacing: AppDimes.two,
                 ),
               ),
             ),
-            ElevatedButton.icon(
-                onPressed: () async {
+            IconsButton(
+                label: language,
+                icon: Svg.svgIcons(
+                    assetName: AppIcon.language,
+                    height: AppDimes.twenty,
+                    width: AppDimes.twenty),
+                onTap: () async {
                   final selectedLanguage = await showModalBottomSheet(
                       context: context,
                       builder: (ctx) {
-                        return const LanguageBottomSheet();
+                        return LanguageBottomSheet(
+                          language: language,
+                        );
                       });
                   setState(() {
                     language = selectedLanguage;
                   });
                   log('selectedLanguage :- ${selectedLanguage.runtimeType}');
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(50)),
-                        side: BorderSide(color: AppColors.lightWhiteColor))),
-                icon: Svg.svgIcons(
-                    assetName: AppIcon.language, height: 20, width: 20),
-                label: Text(
-                  language,
-                  style: const TextStyle(
-                      fontSize: 12, color: AppColors.lightWhiteColor),
-                ))
+                }),
           ],
         ),
       ),
@@ -151,14 +148,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   3,
                   (index) => AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    height: 8,
-                    width: _currentPage == index ? 20 : 8,
+                    margin: const EdgeInsets.symmetric(horizontal: AppDimes.four),
+                    height: AppDimes.eight,
+                    width: _currentPage == index ? AppDimes.twenty : AppDimes.eight,
                     decoration: BoxDecoration(
                       color: _currentPage == index
                           ? AppColors.yellowColor
                           : AppColors.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(AppDimes.four),
                     ),
                   ),
                 ),
@@ -182,7 +179,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const Text(
                   'By sign in or sign up, you agree to our Terms of Service \n and Privacy Policy.',
                   style:
-                      TextStyle(fontSize: 12, color: AppColors.whiteGreyColor),
+                      TextStyle(fontSize: AppDimes.twelve, color: AppColors.whiteGreyColor),
                   textAlign: TextAlign.center)
             ],
           ),

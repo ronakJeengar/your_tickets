@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_dimes.dart';
 import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/screens/home_screen.dart';
 import 'package:your_tickets/screens/profile_screen.dart';
@@ -59,8 +60,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         IconButton(
           icon: Svg.svgIcons(
             assetName: icon,
-            height: 24,
-            width: 24,
+            height: AppDimes.twentyFour,
+            width: AppDimes.twentyFour,
             color:
                 isSelected ? AppColors.yellowColor : AppColors.greyWhiteColor,
           ),
@@ -71,7 +72,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           style: TextStyle(
             color:
                 isSelected ? AppColors.yellowColor : AppColors.greyWhiteColor,
-            fontSize: 10,
+            fontSize: AppDimes.ten,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),
         ),

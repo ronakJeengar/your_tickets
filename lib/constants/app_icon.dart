@@ -15,4 +15,5 @@ class AppIcon {
   static const String language = 'assets/icons/language-icon.svg';
   static const String lock = 'assets/icons/lock-icon.svg';
   static const String faceId = 'assets/icons/face-id-icon.svg';
+  static const String location = 'assets/icons/location-icon.svg';
 }

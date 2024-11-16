@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_dimes.dart';
 import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/core/validator.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/widgets/app_bar.dart';
 import 'package:your_tickets/widgets/auth_login_button.dart';
-import 'package:your_tickets/widgets/horizontal_divider.dart';
 import 'package:your_tickets/widgets/or_line.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'package:your_tickets/widgets/svg.dart';
@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: AppColors.blackColor,
       appBar: const CommonAppBar(title: 'Sign In', centerTitle: true),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(AppDimes.twenty),
         child: Form(
           key: formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -36,8 +36,8 @@ class LoginScreen extends StatelessWidget {
                 hintText: 'enter phone number',
                 prefixIcon: Svg.svgIcons(
                   assetName: AppIcon.phone,
-                  height: 25,
-                  width: 25,
+                  height: AppDimes.twentyFive,
+                  width: AppDimes.twentyFive,
                 ),
                 validator: (v) =>
                     Validator.validateMobileNumber(v.toString().trim()),
@@ -59,9 +59,11 @@ class LoginScreen extends StatelessWidget {
               ),
               gapV10(),
               const Text(
-                  'By sign in or sign up, you agree to our Terms of Service \n and Privacy Policy.',
-                  style:
-                      TextStyle(fontSize: 12, color: AppColors.whiteGreyColor), textAlign: TextAlign.center,)
+                'By sign in or sign up, you agree to our Terms of Service \n and Privacy Policy.',
+                style: TextStyle(
+                    fontSize: AppDimes.twelve, color: AppColors.whiteGreyColor),
+                textAlign: TextAlign.center,
+              )
             ],
           ),
         ),

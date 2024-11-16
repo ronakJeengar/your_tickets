@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:your_tickets/constants/app_colors.dart';
+import 'package:your_tickets/constants/app_dimes.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/models/extra/ticket_model.dart';
 import 'package:your_tickets/models/extra/ticket_price.dart';
@@ -41,7 +42,8 @@ class ConfirmBooking extends StatelessWidget {
         title: 'Confirm Booking',
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppDimes.twenty, vertical: AppDimes.twenty),
         child: Column(
           children: [
             TicketDetails(ticket: ticket),
@@ -59,7 +61,7 @@ class ConfirmBooking extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 90,
+        height: AppDimes.ninety,
         decoration: const BoxDecoration(color: AppColors.blackColor),
         padding: const EdgeInsets.all(10),
         child: SizedBox(

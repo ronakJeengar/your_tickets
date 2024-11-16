@@ -2,20 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/gap.dart';
-import 'package:your_tickets/providers/auth_provider.dart';
 import 'package:your_tickets/widgets/horizontal_divider.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'radio_with_label.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
-  const LanguageBottomSheet({super.key});
+  final String language;
+
+  const LanguageBottomSheet({super.key, required this.language});
 
   @override
   State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
 }
 
 class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
-  String _selectedLanguage = 'English';
+  String _selectedLanguage = '';
+
+  @override
+  void initState() {
+    _selectedLanguage = widget.language;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
