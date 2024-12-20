@@ -13,7 +13,7 @@ class Api {
   // static String auth =
   //     'Basic ${base64Encode(utf8.encode('$basicAuthClientId:$basicAuthClientSecret'))}';
 
-  Map<String, dynamic> defaultHeader = {
+  Map<String, String> defaultHeader = {
     "Content-Type": "application/json",
     // "Authorization": auth,
   };
