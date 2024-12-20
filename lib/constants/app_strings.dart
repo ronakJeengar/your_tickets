@@ -1,4 +1,7 @@
 class AppStrings {
+
+  const AppString._();
+
   static const String termsAndConditions = '''
 1. The show will run only if a minimum of 6 tickets are sold in that show.
 2. The seats layout page for this Cinema is for representational purposes only, and the actual seat layout might vary.

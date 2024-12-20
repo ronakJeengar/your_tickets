@@ -1,4 +1,8 @@
 class AppDimes {
+
+  const AppDimes._();
+
+
   static const double one = 1.0;
   static const double two = 2.0;
   static const double three = 3.0;
