@@ -1,6 +1,6 @@
 class AppStrings {
 
-  const AppString._();
+  const AppStrings._();
 
   static const String termsAndConditions = '''
 1. The show will run only if a minimum of 6 tickets are sold in that show.

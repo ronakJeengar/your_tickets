@@ -1,61 +1,25 @@
-import 'dart:async';
-import 'dart:developer';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:your_tickets/constants/app_colors.dart';
 import 'package:your_tickets/constants/app_dimes.dart';
-import 'package:your_tickets/constants/app_icon.dart';
-import 'package:your_tickets/constants/gap.dart';
+import 'package:your_tickets/providers/dashboard_provider.dart';
 import 'package:your_tickets/routes/routes_name.dart';
+import 'package:your_tickets/widgets/dashboard_page_view.dart';
 import 'package:your_tickets/widgets/icons_button.dart';
 import 'package:your_tickets/widgets/language_bottom_sheet.dart';
+import 'package:your_tickets/widgets/page_indicator.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
-import 'package:your_tickets/widgets/svg.dart';
 
-class DashboardScreen extends StatefulWidget {
+class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
-}
-
-class _DashboardScreenState extends State<DashboardScreen> {
-  final PageController _pageController = PageController();
-  int _currentPage = 0;
-  late Timer _timer;
-  String language = 'English';
-  final formKey = GlobalKey<FormState>();
-  final phoneController = TextEditingController();
-  static String image =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQji7VeicQwHSRawVGCcD5n_L6s1d0nAR6Mw&s';
-
-  @override
-  void initState() {
-    super.initState();
-    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
-      if (_currentPage < 2) {
-        _currentPage++;
-      } else {
-        _currentPage = 0;
-      }
-      _pageController.animateToPage(
-        _currentPage,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentPage = ref.watch(dashboardProvider);
+    final controller = ref.read(dashboardProvider.notifier);
+    final language = ref.watch(selectedLanguageProvider);
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: AppColors.blackColor,
@@ -82,26 +46,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ),
             IconsButton(
-              key: const Key('language_button'),
               label: language,
-              icon: Svg.svgIcons(
-                assetName: AppIcon.language,
-                height: AppDimes.twenty,
-                width: AppDimes.twenty,
-              ),
+              icon: const Icon(Icons.language, size: AppDimes.twenty),
               onTap: () async {
-                final selectedLanguage = await showModalBottomSheet(
+                final selected = await showModalBottomSheet(
                   context: context,
-                  builder: (ctx) {
-                    return LanguageBottomSheet(
-                      language: language,
-                    );
-                  },
+                  builder: (_) => LanguageBottomSheet(language: language),
                 );
-                setState(() {
-                  language = selectedLanguage;
-                });
-                log('selectedLanguage :- ${selectedLanguage.runtimeType}');
+                if (selected != null) {
+                  ref.read(selectedLanguageProvider.notifier).state = selected;
+                }
               },
             ),
           ],
@@ -109,119 +63,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: size.height * 0.6,
-                width: size.width * 75,
-                decoration: const BoxDecoration(
-                  color: AppColors.blackColor,
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: PageView(
-                    controller: _pageController,
-                    onPageChanged: (int page) {
-                      setState(() {
-                        _currentPage = page;
-                      });
-                    },
-                    children: [
-                      pageItem(
-                          image: image,
-                          tagLine: 'Tag Line For Image One',
-                          size: size),
-                      pageItem(
-                          image: image,
-                          tagLine: 'Tag Line For Image Two',
-                          size: size),
-                      pageItem(
-                          image: image,
-                          tagLine: 'Tag Line For Image Three',
-                          size: size),
-                    ],
-                  ),
-                ),
+        child: Column(
+
+          children: [
+            DashboardPageView(
+              controller: controller.pageController,
+              onPageChanged: controller.updatePage,
+              size: size,
+            ),
+            PageIndicator(currentIndex: currentPage),
+            const SizedBox(height: 20),
+            PrimaryButton(
+              label: 'Sign In',
+              onPressed: () => context.pushNamed(RoutesName.login),
+              isLoading: false,
+            ),
+            const SizedBox(height: 20),
+            PrimaryButton(
+              label: 'Sign Up',
+              onPressed: () => context.pushNamed(RoutesName.register),
+              isLoading: false,
+              backgroundColor: Colors.transparent,
+              foregroundColor: AppColors.lightWhiteColor,
+              borderColor: AppColors.lightWhiteColor,
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'By sign in or sign up, you agree to our Terms of Service\nand Privacy Policy.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: AppDimes.twelve,
+                color: AppColors.whiteGreyColor,
               ),
-              Flexible(
-                fit: FlexFit.loose,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    3,
-                    (index) => AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin:
-                          const EdgeInsets.symmetric(horizontal: AppDimes.four),
-                      height: AppDimes.eight,
-                      width: _currentPage == index
-                          ? AppDimes.twenty
-                          : AppDimes.eight,
-                      decoration: BoxDecoration(
-                        color: _currentPage == index
-                            ? AppColors.yellowColor
-                            : AppColors.lightWhiteColor,
-                        borderRadius: BorderRadius.circular(AppDimes.four),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              gapV20(),
-              PrimaryButton(
-                label: 'Sign In',
-                onPressed: () => context.pushNamed(RoutesName.login),
-                isLoading: false,
-              ),
-              gapV20(),
-              PrimaryButton(
-                label: 'Sign Up',
-                onPressed: () => context.pushNamed(RoutesName.register),
-                isLoading: false,
-                backgroundColor: Colors.transparent,
-                foregroundColor: AppColors.lightWhiteColor,
-                borderColor: AppColors.lightWhiteColor,
-              ),
-              gapV20(),
-              const Text(
-                  'By sign in or sign up, you agree to our Terms of Service \n and Privacy Policy.',
-                  style: TextStyle(
-                      fontSize: AppDimes.twelve,
-                      color: AppColors.whiteGreyColor),
-                  textAlign: TextAlign.center)
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    );
-  }
-
-  Column pageItem(
-      {required String image, required String tagLine, required Size size}) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(25),
-          child: CachedNetworkImage(
-            imageUrl: image,
-            fit: BoxFit.cover,
-            height: size.height * 0.55,
-            width: size.width * 0.70,
-          ),
-        ),
-        gapV20(),
-        Expanded(
-          child: Text(
-            tagLine,
-            style:
-                const TextStyle(fontSize: 16, color: AppColors.lightWhiteColor),
-          ),
-        )
-      ],
     );
   }
 }
