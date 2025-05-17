@@ -82,33 +82,38 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ),
             IconsButton(
-                label: language,
-                icon: Svg.svgIcons(
-                    assetName: AppIcon.language,
-                    height: AppDimes.twenty,
-                    width: AppDimes.twenty),
-                onTap: () async {
-                  final selectedLanguage = await showModalBottomSheet(
-                      context: context,
-                      builder: (ctx) {
-                        return LanguageBottomSheet(
-                          language: language,
-                        );
-                      });
-                  setState(() {
-                    language = selectedLanguage;
-                  });
-                  log('selectedLanguage :- ${selectedLanguage.runtimeType}');
-                }),
+              key: const Key('language_button'),
+              label: language,
+              icon: Svg.svgIcons(
+                assetName: AppIcon.language,
+                height: AppDimes.twenty,
+                width: AppDimes.twenty,
+              ),
+              onTap: () async {
+                final selectedLanguage = await showModalBottomSheet(
+                  context: context,
+                  builder: (ctx) {
+                    return LanguageBottomSheet(
+                      language: language,
+                    );
+                  },
+                );
+                setState(() {
+                  language = selectedLanguage;
+                });
+                log('selectedLanguage :- ${selectedLanguage.runtimeType}');
+              },
+            ),
           ],
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Form(
           key: formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 height: size.height * 0.6,
@@ -142,25 +147,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  3,
-                  (index) => AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    margin: const EdgeInsets.symmetric(horizontal: AppDimes.four),
-                    height: AppDimes.eight,
-                    width: _currentPage == index ? AppDimes.twenty : AppDimes.eight,
-                    decoration: BoxDecoration(
-                      color: _currentPage == index
-                          ? AppColors.yellowColor
-                          : AppColors.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(AppDimes.four),
+              Flexible(
+                fit: FlexFit.loose,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    3,
+                    (index) => AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin:
+                          const EdgeInsets.symmetric(horizontal: AppDimes.four),
+                      height: AppDimes.eight,
+                      width: _currentPage == index
+                          ? AppDimes.twenty
+                          : AppDimes.eight,
+                      decoration: BoxDecoration(
+                        color: _currentPage == index
+                            ? AppColors.yellowColor
+                            : AppColors.lightWhiteColor,
+                        borderRadius: BorderRadius.circular(AppDimes.four),
+                      ),
                     ),
                   ),
                 ),
               ),
-              const Spacer(),
+              gapV20(),
               PrimaryButton(
                 label: 'Sign In',
                 onPressed: () => context.pushNamed(RoutesName.login),
@@ -178,8 +189,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
               gapV20(),
               const Text(
                   'By sign in or sign up, you agree to our Terms of Service \n and Privacy Policy.',
-                  style:
-                      TextStyle(fontSize: AppDimes.twelve, color: AppColors.whiteGreyColor),
+                  style: TextStyle(
+                      fontSize: AppDimes.twelve,
+                      color: AppColors.whiteGreyColor),
                   textAlign: TextAlign.center)
             ],
           ),
@@ -202,10 +214,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
         gapV20(),
-        Text(
-          tagLine,
-          style:
-              const TextStyle(fontSize: 16, color: AppColors.lightWhiteColor),
+        Expanded(
+          child: Text(
+            tagLine,
+            style:
+                const TextStyle(fontSize: 16, color: AppColors.lightWhiteColor),
+          ),
         )
       ],
     );

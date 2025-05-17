@@ -58,9 +58,9 @@ class LanguageScreenSelect extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => context.pushNamed(
                   RoutesName.theatreShowScreen,
-                  extra: {
-                    'movieTitle': movieName,
-                  },
+                  pathParameters: {
+                    'movieName': movieName,
+                  }, 
                 ),
                 child: const SelectChip(
                   screenType: '2D',

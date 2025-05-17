@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:your_tickets/models/extra/movie_model.dart';
 import 'package:your_tickets/models/extra/theatre_model.dart';
@@ -73,9 +74,10 @@ class Routes {
         name: RoutesName.theatreShowScreen,
         path: RoutePath.theatreShowScreen,
         builder: (context, state) {
-          final extra = state.extra as Map<String, dynamic>?;
-          final movieTitle = extra?['movieTitle'] as String? ?? '';
-          return TheatreShowScreen(movieName: movieTitle);
+          final movieTitle = state.pathParameters['movieName'];
+          // final extra = state.extra as Map<String, dynamic>?;
+          // final movieTitle = extra?['movieTitle'] as String? ?? '';
+          return TheatreShowScreen(movieName: movieTitle!);
         },
       ),
       GoRoute(
@@ -107,21 +109,21 @@ class Routes {
     ],
   );
 
-  // static void pushNamed(String routeName, {dynamic args}) {
-  //   router.pushNamed(routeName);
-  // }
-  //
-  // static void pop([dynamic result]) {
-  //   router.pop(result);
-  // }
-  //
-  // static void popUntil(String routeName) {
-  //   router.goNamed(routeName);
-  // }
-  //
-  // static void popUntilRoot() {
-  //   while (router.canPop()) {
-  //     router.pop();
-  //   }
-  // }
+// static void pushNamed(String routeName, {dynamic args}) {
+//   router.pushNamed(routeName);
+// }
+//
+// static void pop([dynamic result]) {
+//   router.pop(result);
+// }
+//
+// static void popUntil(String routeName) {
+//   router.goNamed(routeName);
+// }
+//
+// static void popUntilRoot() {
+//   while (router.canPop()) {
+//     router.pop();
+//   }
+// }
 }

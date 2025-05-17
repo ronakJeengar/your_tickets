@@ -28,7 +28,6 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.all(AppDimes.twenty),
         child: Form(
           key: formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             children: [
               TextInputField(
@@ -46,7 +45,11 @@ class LoginScreen extends StatelessWidget {
               gapV15(),
               PrimaryButton(
                 label: 'Login',
-                onPressed: () => context.pushNamed(RoutesName.otp),
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    context.pushNamed(RoutesName.otp);
+                  }
+                },
                 isLoading: false,
               ),
               const Spacer(),

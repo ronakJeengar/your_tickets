@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:your_tickets/app.dart';
+import 'package:your_tickets/routes/routes.dart';
 
 import 'services/local_storage/key_value_storage_base.dart';
 
@@ -11,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   debugPrint = setDebugPrint;
   await KeyValueStorageBase.init();
-  runApp(const ProviderScope(child: TicketBookingApp()));
+  runApp(ProviderScope(child: TicketBookingApp(goRouter: Routes.router)));
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
