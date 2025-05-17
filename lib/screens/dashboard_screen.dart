@@ -64,7 +64,7 @@ class DashboardScreen extends ConsumerWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-
+          spacing: 20,
           children: [
             DashboardPageView(
               controller: controller.pageController,
@@ -72,13 +72,11 @@ class DashboardScreen extends ConsumerWidget {
               size: size,
             ),
             PageIndicator(currentIndex: currentPage),
-            const SizedBox(height: 20),
             PrimaryButton(
               label: 'Sign In',
               onPressed: () => context.pushNamed(RoutesName.login),
               isLoading: false,
             ),
-            const SizedBox(height: 20),
             PrimaryButton(
               label: 'Sign Up',
               onPressed: () => context.pushNamed(RoutesName.register),
@@ -87,7 +85,6 @@ class DashboardScreen extends ConsumerWidget {
               foregroundColor: AppColors.lightWhiteColor,
               borderColor: AppColors.lightWhiteColor,
             ),
-            const SizedBox(height: 20),
             const Text(
               'By sign in or sign up, you agree to our Terms of Service\nand Privacy Policy.',
               textAlign: TextAlign.center,
