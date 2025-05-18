@@ -1,0 +1,2 @@
+C:/Users/ronak/OneDrive/Desktop/Your Tickets/your_tickets/android/app/.cxx/RelWithDebInfo/3u133v2s/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/ronak/OneDrive/Desktop/Your Tickets/your_tickets/android/app/.cxx/RelWithDebInfo/3u133v2s/x86_64/CMakeFiles/rebuild_cache.dir
