@@ -13,12 +13,13 @@ class ApiEndpoint {
     var path = '/auth';
     switch (endpoint) {
       case AuthEndpoint.REGISTER: return '$path/register';
-      case AuthEndpoint.LOGIN: return '$path/login';
+      case AuthEndpoint.SEND_OTP: return '$path/phone';
+      case AuthEndpoint.CURRENT_USER: return '$path/user';
       case AuthEndpoint.REFRESH_TOKEN: return '$path/token';
       case AuthEndpoint.FORGOT_PASSWORD: return '$path/password/forgot';
       case AuthEndpoint.RESET_PASSWORD: return '$path/password/reset';
       case AuthEndpoint.CHANGE_PASSWORD: return '$path/password/change';
-      case AuthEndpoint.VERIFY_OTP: return '$path/password/otp';
+      case AuthEndpoint.VERIFY_OTP: return '$path/phone/otp';
     }
   }
 
@@ -124,12 +125,13 @@ class ApiEndpoint {
 
 enum AuthEndpoint {
   REGISTER,
-  LOGIN,
+  SEND_OTP,
+  VERIFY_OTP,
+  CURRENT_USER,
   REFRESH_TOKEN,
   FORGOT_PASSWORD,
   RESET_PASSWORD,
   CHANGE_PASSWORD,
-  VERIFY_OTP,
 }
 
 enum MovieEndpoint {

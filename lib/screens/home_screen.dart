@@ -8,7 +8,6 @@ import 'package:your_tickets/constants/app_icon.dart';
 import 'package:your_tickets/constants/gap.dart';
 import 'package:your_tickets/models/extra/carousel_item.dart';
 import 'package:your_tickets/models/extra/movie_model.dart';
-import 'package:your_tickets/models/offer_model.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/widgets/carasoul.dart';
 import 'package:your_tickets/widgets/icons_button.dart';
@@ -189,81 +188,81 @@ class _HomeScreenState extends State<HomeScreen> {
 
   String location = 'Kankroli';
 
-  List<OfferModel> offers = [
-    OfferModel(
-      id: '001',
-      title: '20% Off on All Tickets',
-      description:
-          'Use this offer to get 20% off on your next movie ticket booking!',
-      offerImage:
-          'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
-      offerType: OfferType.percentageDiscount,
-      discountValue: 20.0,
-      minOrderAmount: 50.0,
-      expiryDate: DateTime(2024, 12, 31),
-      isActive: true,
-      applicableMovies: ['movie1', 'movie2', 'movie3'],
-      promoCode: 'SAVE20',
-    ),
-    OfferModel(
-      id: '002',
-      title: 'Flat \'${'\$'}5 Off on First Booking',
-      description:
-          'First-time users get \'${'\$'}5 off on their first movie ticket purchase.',
-      offerImage:
-          'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
-      offerType: OfferType.flatDiscount,
-      discountValue: 5.0,
-      minOrderAmount: 20.0,
-      expiryDate: DateTime(2024, 11, 30),
-      isActive: true,
-      applicableMovies: ['movie4', 'movie5'],
-      promoCode: 'FIRST5',
-    ),
-    OfferModel(
-      id: '003',
-      title: 'Exclusive 15% Off on Select Movies',
-      description: 'Get 15% off on select movies this weekend only.',
-      offerImage:
-          'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
-      offerType: OfferType.percentageDiscount,
-      discountValue: 15.0,
-      minOrderAmount: 40.0,
-      expiryDate: DateTime(2024, 11, 15),
-      isActive: true,
-      applicableMovies: ['movie6', 'movie7'],
-      promoCode: 'WEEKEND15',
-    ),
-    OfferModel(
-      id: '004',
-      title: '10% Off with Code MOVIE10',
-      description: 'Enjoy a 10% discount on your booking with code MOVIE10.',
-      offerImage:
-          'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
-      offerType: OfferType.promoCode,
-      discountValue: 10.0,
-      minOrderAmount: 30.0,
-      expiryDate: DateTime(2025, 1, 31),
-      isActive: true,
-      applicableMovies: ['movie8', 'movie9', 'movie10'],
-      promoCode: 'MOVIE10',
-    ),
-    OfferModel(
-      id: '005',
-      title: 'Special 25% Off on Premium Seats',
-      description:
-          'Book premium seats with a 25% discount for a luxurious experience.',
-      offerImage:
-          'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
-      offerType: OfferType.percentageDiscount,
-      discountValue: 25.0,
-      minOrderAmount: 100.0,
-      expiryDate: DateTime(2024, 12, 25),
-      isActive: true,
-      applicableMovies: ['movie11', 'movie12'],
-      promoCode: 'PREMIUM25',
-    ),
-  ];
+  // List<OfferModel> offers = [
+  //   OfferModel(
+  //     id: '001',
+  //     title: '20% Off on All Tickets',
+  //     description:
+  //         'Use this offer to get 20% off on your next movie ticket booking!',
+  //     offerImage:
+  //         'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
+  //     offerType: OfferType.percentageDiscount,
+  //     discountValue: 20.0,
+  //     minOrderAmount: 50.0,
+  //     expiryDate: DateTime(2024, 12, 31),
+  //     isActive: true,
+  //     applicableMovies: ['movie1', 'movie2', 'movie3'],
+  //     promoCode: 'SAVE20',
+  //   ),
+  //   OfferModel(
+  //     id: '002',
+  //     title: 'Flat \'${'\$'}5 Off on First Booking',
+  //     description:
+  //         'First-time users get \'${'\$'}5 off on their first movie ticket purchase.',
+  //     offerImage:
+  //         'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
+  //     offerType: OfferType.flatDiscount,
+  //     discountValue: 5.0,
+  //     minOrderAmount: 20.0,
+  //     expiryDate: DateTime(2024, 11, 30),
+  //     isActive: true,
+  //     applicableMovies: ['movie4', 'movie5'],
+  //     promoCode: 'FIRST5',
+  //   ),
+  //   OfferModel(
+  //     id: '003',
+  //     title: 'Exclusive 15% Off on Select Movies',
+  //     description: 'Get 15% off on select movies this weekend only.',
+  //     offerImage:
+  //         'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
+  //     offerType: OfferType.percentageDiscount,
+  //     discountValue: 15.0,
+  //     minOrderAmount: 40.0,
+  //     expiryDate: DateTime(2024, 11, 15),
+  //     isActive: true,
+  //     applicableMovies: ['movie6', 'movie7'],
+  //     promoCode: 'WEEKEND15',
+  //   ),
+  //   OfferModel(
+  //     id: '004',
+  //     title: '10% Off with Code MOVIE10',
+  //     description: 'Enjoy a 10% discount on your booking with code MOVIE10.',
+  //     offerImage:
+  //         'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
+  //     offerType: OfferType.promoCode,
+  //     discountValue: 10.0,
+  //     minOrderAmount: 30.0,
+  //     expiryDate: DateTime(2025, 1, 31),
+  //     isActive: true,
+  //     applicableMovies: ['movie8', 'movie9', 'movie10'],
+  //     promoCode: 'MOVIE10',
+  //   ),
+  //   OfferModel(
+  //     id: '005',
+  //     title: 'Special 25% Off on Premium Seats',
+  //     description:
+  //         'Book premium seats with a 25% discount for a luxurious experience.',
+  //     offerImage:
+  //         'https://img.freepik.com/free-vector/gradient-discount-numbers-set_52683-90175.jpg?t=st=1730626431~exp=1730630031~hmac=b806870ab51d985e1567922ee3e7d6c8b4be32d9fd4151d6b401c06b5e88a312&w=996',
+  //     offerType: OfferType.percentageDiscount,
+  //     discountValue: 25.0,
+  //     minOrderAmount: 100.0,
+  //     expiryDate: DateTime(2024, 12, 25),
+  //     isActive: true,
+  //     applicableMovies: ['movie11', 'movie12'],
+  //     promoCode: 'PREMIUM25',
+  //   ),
+  // ];
 
   final TextEditingController searchController = TextEditingController();
 
@@ -342,47 +341,47 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             TitleWithSeeAll(title: 'Promo & Discount', onTap: () {}),
-            Padding(
-              padding: const EdgeInsets.all(AppDimes.ten),
-              child: SizedBox(
-                height: 200,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: offers.length,
-                  itemBuilder: (ctx, index) {
-                    final offer = offers[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(right: AppDimes.ten),
-                      child: OfferCard(
-                        offer: offer,
-                        onPressed: () {},
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(AppDimes.ten),
+            //   child: SizedBox(
+            //     height: 200,
+            //     child: ListView.builder(
+            //       scrollDirection: Axis.horizontal,
+            //       itemCount: offers.length,
+            //       itemBuilder: (ctx, index) {
+            //         final offer = offers[index];
+            //         return Padding(
+            //           padding: const EdgeInsets.only(right: AppDimes.ten),
+            //           child: OfferCard(
+            //             offer: offer,
+            //             onPressed: () {},
+            //           ),
+            //         );
+            //       },
+            //     ),
+            //   ),
+            // ),
             TitleWithSeeAll(title: 'Facts & News', onTap: () {}),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                height: 200,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: offers.length,
-                  itemBuilder: (ctx, index) {
-                    final offer = offers[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: NewsCard(
-                        offer: offer,
-                        onPressed: () {},
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(10),
+            //   child: SizedBox(
+            //     height: 200,
+            //     child: ListView.builder(
+            //       scrollDirection: Axis.horizontal,
+            //       itemCount: offers.length,
+            //       itemBuilder: (ctx, index) {
+            //         final offer = offers[index];
+            //         return Padding(
+            //           padding: const EdgeInsets.only(right: 10),
+            //           child: NewsCard(
+            //             offer: offer,
+            //             onPressed: () {},
+            //           ),
+            //         );
+            //       },
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

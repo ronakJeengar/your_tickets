@@ -29,8 +29,8 @@ class ApiEndpoint {
     switch (endpoint) {
       case AuthEndpoint.REGISTER:
         return '$path/register';
-      case AuthEndpoint.LOGIN:
-        return '$path/login';
+      case AuthEndpoint.SEND_OTP:
+        return '$path/phone';
       case AuthEndpoint.REFRESH_TOKEN:
         return '$path/token';
       case AuthEndpoint.FORGOT_PASSWORD:
@@ -40,7 +40,7 @@ class ApiEndpoint {
       case AuthEndpoint.CHANGE_PASSWORD:
         return '$path/password/change';
       case AuthEndpoint.VERIFY_OTP:
-        return '$path/password/otp';
+        return '$path/phone/otp';
     }
   }
 
@@ -191,8 +191,8 @@ enum AuthEndpoint {
   /// An endpoint for registration requests.
   REGISTER,
 
-  /// An endpoint for login requests.
-  LOGIN,
+  /// An endpoint for verifying otp code.
+  SEND_OTP,
 
   /// An endpoint for token refresh requests.
   REFRESH_TOKEN,

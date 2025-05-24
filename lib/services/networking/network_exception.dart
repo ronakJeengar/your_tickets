@@ -8,7 +8,7 @@ import '../../helper/utils/exception_constants.dart';
 part 'network_exception.freezed.dart';
 
 @freezed
-class NetworkException with _$NetworkException {
+abstract class NetworkException with _$NetworkException {
   const factory NetworkException.FormatException({
     required String name,
     required String message,

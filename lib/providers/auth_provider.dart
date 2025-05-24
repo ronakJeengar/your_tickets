@@ -1,10 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:your_tickets/helper/typedefs.dart';
-import 'package:your_tickets/routes/routes_name.dart';
 
 //Enums
 
@@ -25,7 +23,7 @@ final changePasswordStateProvider = StateProvider<FutureState<String>>(
 );
 
 class AuthProvider extends StateNotifier<AuthState> {
-  UserModel? _currentUser;
+  User? _currentUser;
   final AuthRepository _authRepository;
   final KeyValueStorageService _keyValueStorageService;
   final Ref _ref;
@@ -42,7 +40,7 @@ class AuthProvider extends StateNotifier<AuthState> {
     // init();
   }
 
-  int get currentUserId => _currentUser!.userId!;
+  String get currentUserId => _currentUser!.id;
 
   String get currentUserFullName => _currentUser!.name;
 
@@ -84,14 +82,14 @@ class AuthProvider extends StateNotifier<AuthState> {
       _currentUser = await _authRepository.login(data: loginUserData);
       // state = AuthState.authenticated(fullName: _currentUser!.name);
 
-      state.maybeWhen(
-        authenticated: (fullName) {
-          context.pushNamed(RoutesName.otp);
-        },
-        orElse: () {
-          log('not authenticated');
-        },
-      );
+      // state.maybeWhen(
+      //   authenticated: (fullName) {
+      //     context.pushNamed(RoutesName.otp);
+      //   },
+      //   orElse: () {
+      //     log('not authenticated');
+      //   },
+      // );
 
       _updatePassword(loginUserData['password']);
       _updateAuthProfile();

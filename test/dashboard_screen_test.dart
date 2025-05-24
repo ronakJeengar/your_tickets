@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/routes/routes_path.dart';
 import 'package:your_tickets/screens/dashboard_screen.dart';
-import 'package:your_tickets/screens/login_screen.dart';
-import 'package:your_tickets/screens/registration_screen.dart';
+import 'package:your_tickets/features/auth/presentation/login_screen.dart';
+import 'package:your_tickets/features/auth/presentation/registration_screen.dart';
 import 'package:your_tickets/widgets/icons_button.dart';
 import 'package:your_tickets/widgets/language_bottom_sheet.dart';
 

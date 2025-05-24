@@ -14,12 +14,12 @@ import '../services/networking/interceptors/logging_interceptor.dart';
 import '../services/networking/interceptors/refresh_token_interceptor.dart';
 
 //Repository imports
-import '../services/repositories/auth_repository.dart';
-import '../services/repositories/bookings_repository.dart';
-import '../services/repositories/movies_repository.dart';
-import '../services/repositories/payments_repository.dart';
-import '../services/repositories/shows_repository.dart';
-import '../services/repositories/theaters_repository.dart';
+// import '../services/repositories/auth_repository.dart';
+// import '../services/repositories/bookings_repository.dart';
+// import '../services/repositories/movies_repository.dart';
+// import '../services/repositories/payments_repository.dart';
+// import '../services/repositories/shows_repository.dart';
+// import '../services/repositories/theaters_repository.dart';
 
 //Provider imports
 import 'auth_provider.dart';
@@ -65,10 +65,10 @@ final _apiServiceProvider = Provider<ApiService>((ref) {
 });
 
 //repositories providers
-final _authRepositoryProvider = Provider<AuthRepository>((ref) {
-  final apiService = ref.watch(_apiServiceProvider);
-  return AuthRepository(apiService: apiService);
-});
+// final _authRepositoryProvider = Provider<AuthRepository>((ref) {
+//   final apiService = ref.watch(_apiServiceProvider);
+//   return AuthRepository(apiService: apiService);
+// });
 
 // final _moviesRepositoryProvider = Provider<MoviesRepository>((ref) {
 //   final apiService = ref.watch(_apiServiceProvider);
@@ -96,15 +96,15 @@ final _authRepositoryProvider = Provider<AuthRepository>((ref) {
 // });
 //
 //notifier providers
-final authProvider = StateNotifierProvider<AuthProvider, AuthState>((ref) {
-  final authRepository = ref.watch(_authRepositoryProvider);
-  final keyValueStorageService = ref.watch(keyValueStorageServiceProvider);
-  return AuthProvider(
-    ref: ref,
-    authRepository: authRepository,
-    keyValueStorageService: keyValueStorageService,
-  );
-});
+// final authProvider = StateNotifierProvider<AuthProvider, AuthState>((ref) {
+//   final authRepository = ref.watch(_authRepositoryProvider);
+//   final keyValueStorageService = ref.watch(keyValueStorageServiceProvider);
+//   return AuthProvider(
+//     ref: ref,
+//     authRepository: authRepository,
+//     keyValueStorageService: keyValueStorageService,
+//   );
+// });
 //
 // final forgotPasswordProvider = StateNotifierProvider.autoDispose<
 //     ForgotPasswordProvider, ForgotPasswordState>((ref) {

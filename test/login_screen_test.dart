@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:your_tickets/features/auth/presentation/otp_screen.dart';
 import 'package:your_tickets/routes/routes_name.dart';
 import 'package:your_tickets/routes/routes_path.dart';
-import 'package:your_tickets/screens/login_screen.dart';
-import 'package:your_tickets/screens/otp_screen.dart'; // Replace with your actual OTP screen widget
+import 'package:your_tickets/features/auth/presentation/login_screen.dart';
 import 'package:your_tickets/widgets/primary_button.dart';
 import 'package:your_tickets/widgets/text_input_field.dart';
 

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,169 +10,56 @@ part of 'network_exception.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NetworkException {
-  String get name => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  String get name;
+  String get message;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $NetworkExceptionCopyWith<NetworkException> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NetworkExceptionCopyWith<$Res> {
-  factory $NetworkExceptionCopyWith(
-          NetworkException value, $Res Function(NetworkException) then) =
-      _$NetworkExceptionCopyWithImpl<$Res, NetworkException>;
-  @useResult
-  $Res call({String name, String message});
-}
-
-/// @nodoc
-class _$NetworkExceptionCopyWithImpl<$Res, $Val extends NetworkException>
-    implements $NetworkExceptionCopyWith<$Res> {
-  _$NetworkExceptionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $NetworkExceptionCopyWith<NetworkException> get copyWith =>
+      _$NetworkExceptionCopyWithImpl<NetworkException>(
+          this as NetworkException, _$identity);
+
   @override
-  $Res call({
-    Object? name = null,
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NetworkException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
+
+  @override
+  String toString() {
+    return 'NetworkException(name: $name, message: $message)';
   }
 }
 
 /// @nodoc
-abstract class _$$FormatExceptionImplCopyWith<$Res>
-    implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$FormatExceptionImplCopyWith(_$FormatExceptionImpl value,
-          $Res Function(_$FormatExceptionImpl) then) =
-      __$$FormatExceptionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NetworkExceptionCopyWith<$Res> {
+  factory $NetworkExceptionCopyWith(
+          NetworkException value, $Res Function(NetworkException) _then) =
+      _$NetworkExceptionCopyWithImpl;
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$FormatExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$FormatExceptionImpl>
-    implements _$$FormatExceptionImplCopyWith<$Res> {
-  __$$FormatExceptionImplCopyWithImpl(
-      _$FormatExceptionImpl _value, $Res Function(_$FormatExceptionImpl) _then)
-      : super(_value, _then);
+class _$NetworkExceptionCopyWithImpl<$Res>
+    implements $NetworkExceptionCopyWith<$Res> {
+  _$NetworkExceptionCopyWithImpl(this._self, this._then);
+
+  final NetworkException _self;
+  final $Res Function(NetworkException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
@@ -181,13 +69,13 @@ class __$$FormatExceptionImplCopyWithImpl<$Res>
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$FormatExceptionImpl(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -196,205 +84,74 @@ class __$$FormatExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FormatExceptionImpl implements _FormatException {
-  const _$FormatExceptionImpl({required this.name, required this.message});
+class _FormatException implements NetworkException {
+  const _FormatException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FormatExceptionCopyWith<_FormatException> get copyWith =>
+      __$FormatExceptionCopyWithImpl<_FormatException>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FormatException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.FormatException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FormatExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FormatExceptionImplCopyWith<_$FormatExceptionImpl> get copyWith =>
-      __$$FormatExceptionImplCopyWithImpl<_$FormatExceptionImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return FormatException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return FormatException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (FormatException != null) {
-      return FormatException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return FormatException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return FormatException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (FormatException != null) {
-      return FormatException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FormatException implements NetworkException {
-  const factory _FormatException(
-      {required final String name,
-      required final String message}) = _$FormatExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FormatExceptionImplCopyWith<_$FormatExceptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchDataExceptionImplCopyWith<$Res>
+abstract mixin class _$FormatExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$FetchDataExceptionImplCopyWith(_$FetchDataExceptionImpl value,
-          $Res Function(_$FetchDataExceptionImpl) then) =
-      __$$FetchDataExceptionImplCopyWithImpl<$Res>;
+  factory _$FormatExceptionCopyWith(
+          _FormatException value, $Res Function(_FormatException) _then) =
+      __$FormatExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$FetchDataExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$FetchDataExceptionImpl>
-    implements _$$FetchDataExceptionImplCopyWith<$Res> {
-  __$$FetchDataExceptionImplCopyWithImpl(_$FetchDataExceptionImpl _value,
-      $Res Function(_$FetchDataExceptionImpl) _then)
-      : super(_value, _then);
+class __$FormatExceptionCopyWithImpl<$Res>
+    implements _$FormatExceptionCopyWith<$Res> {
+  __$FormatExceptionCopyWithImpl(this._self, this._then);
+
+  final _FormatException _self;
+  final $Res Function(_FormatException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$FetchDataExceptionImpl(
+    return _then(_FormatException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -403,205 +160,74 @@ class __$$FetchDataExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDataExceptionImpl implements _FetchDataException {
-  const _$FetchDataExceptionImpl({required this.name, required this.message});
+class _FetchDataException implements NetworkException {
+  const _FetchDataException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FetchDataExceptionCopyWith<_FetchDataException> get copyWith =>
+      __$FetchDataExceptionCopyWithImpl<_FetchDataException>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FetchDataException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.FetchDataException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchDataExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchDataExceptionImplCopyWith<_$FetchDataExceptionImpl> get copyWith =>
-      __$$FetchDataExceptionImplCopyWithImpl<_$FetchDataExceptionImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return FetchDataException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return FetchDataException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (FetchDataException != null) {
-      return FetchDataException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return FetchDataException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return FetchDataException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (FetchDataException != null) {
-      return FetchDataException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FetchDataException implements NetworkException {
-  const factory _FetchDataException(
-      {required final String name,
-      required final String message}) = _$FetchDataExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FetchDataExceptionImplCopyWith<_$FetchDataExceptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ApiExceptionImplCopyWith<$Res>
+abstract mixin class _$FetchDataExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$ApiExceptionImplCopyWith(
-          _$ApiExceptionImpl value, $Res Function(_$ApiExceptionImpl) then) =
-      __$$ApiExceptionImplCopyWithImpl<$Res>;
+  factory _$FetchDataExceptionCopyWith(
+          _FetchDataException value, $Res Function(_FetchDataException) _then) =
+      __$FetchDataExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$ApiExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$ApiExceptionImpl>
-    implements _$$ApiExceptionImplCopyWith<$Res> {
-  __$$ApiExceptionImplCopyWithImpl(
-      _$ApiExceptionImpl _value, $Res Function(_$ApiExceptionImpl) _then)
-      : super(_value, _then);
+class __$FetchDataExceptionCopyWithImpl<$Res>
+    implements _$FetchDataExceptionCopyWith<$Res> {
+  __$FetchDataExceptionCopyWithImpl(this._self, this._then);
+
+  final _FetchDataException _self;
+  final $Res Function(_FetchDataException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$ApiExceptionImpl(
+    return _then(_FetchDataException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -610,205 +236,74 @@ class __$$ApiExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ApiExceptionImpl implements _ApiException {
-  const _$ApiExceptionImpl({required this.name, required this.message});
+class _ApiException implements NetworkException {
+  const _ApiException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ApiExceptionCopyWith<_ApiException> get copyWith =>
+      __$ApiExceptionCopyWithImpl<_ApiException>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ApiException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.ApiException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApiExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ApiExceptionImplCopyWith<_$ApiExceptionImpl> get copyWith =>
-      __$$ApiExceptionImplCopyWithImpl<_$ApiExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return ApiException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return ApiException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (ApiException != null) {
-      return ApiException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return ApiException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return ApiException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (ApiException != null) {
-      return ApiException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ApiException implements NetworkException {
-  const factory _ApiException(
-      {required final String name,
-      required final String message}) = _$ApiExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ApiExceptionImplCopyWith<_$ApiExceptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TokenExpiredExceptionImplCopyWith<$Res>
+abstract mixin class _$ApiExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$TokenExpiredExceptionImplCopyWith(
-          _$TokenExpiredExceptionImpl value,
-          $Res Function(_$TokenExpiredExceptionImpl) then) =
-      __$$TokenExpiredExceptionImplCopyWithImpl<$Res>;
+  factory _$ApiExceptionCopyWith(
+          _ApiException value, $Res Function(_ApiException) _then) =
+      __$ApiExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$TokenExpiredExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$TokenExpiredExceptionImpl>
-    implements _$$TokenExpiredExceptionImplCopyWith<$Res> {
-  __$$TokenExpiredExceptionImplCopyWithImpl(_$TokenExpiredExceptionImpl _value,
-      $Res Function(_$TokenExpiredExceptionImpl) _then)
-      : super(_value, _then);
+class __$ApiExceptionCopyWithImpl<$Res>
+    implements _$ApiExceptionCopyWith<$Res> {
+  __$ApiExceptionCopyWithImpl(this._self, this._then);
+
+  final _ApiException _self;
+  final $Res Function(_ApiException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$TokenExpiredExceptionImpl(
+    return _then(_ApiException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -817,207 +312,75 @@ class __$$TokenExpiredExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TokenExpiredExceptionImpl implements _TokenExpiredException {
-  const _$TokenExpiredExceptionImpl(
-      {required this.name, required this.message});
+class _TokenExpiredException implements NetworkException {
+  const _TokenExpiredException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TokenExpiredExceptionCopyWith<_TokenExpiredException> get copyWith =>
+      __$TokenExpiredExceptionCopyWithImpl<_TokenExpiredException>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TokenExpiredException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.TokenExpiredException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TokenExpiredExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TokenExpiredExceptionImplCopyWith<_$TokenExpiredExceptionImpl>
-      get copyWith => __$$TokenExpiredExceptionImplCopyWithImpl<
-          _$TokenExpiredExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return TokenExpiredException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return TokenExpiredException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (TokenExpiredException != null) {
-      return TokenExpiredException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return TokenExpiredException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return TokenExpiredException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (TokenExpiredException != null) {
-      return TokenExpiredException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TokenExpiredException implements NetworkException {
-  const factory _TokenExpiredException(
-      {required final String name,
-      required final String message}) = _$TokenExpiredExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TokenExpiredExceptionImplCopyWith<_$TokenExpiredExceptionImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UnrecognizedExceptionImplCopyWith<$Res>
+abstract mixin class _$TokenExpiredExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$UnrecognizedExceptionImplCopyWith(
-          _$UnrecognizedExceptionImpl value,
-          $Res Function(_$UnrecognizedExceptionImpl) then) =
-      __$$UnrecognizedExceptionImplCopyWithImpl<$Res>;
+  factory _$TokenExpiredExceptionCopyWith(_TokenExpiredException value,
+          $Res Function(_TokenExpiredException) _then) =
+      __$TokenExpiredExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$UnrecognizedExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$UnrecognizedExceptionImpl>
-    implements _$$UnrecognizedExceptionImplCopyWith<$Res> {
-  __$$UnrecognizedExceptionImplCopyWithImpl(_$UnrecognizedExceptionImpl _value,
-      $Res Function(_$UnrecognizedExceptionImpl) _then)
-      : super(_value, _then);
+class __$TokenExpiredExceptionCopyWithImpl<$Res>
+    implements _$TokenExpiredExceptionCopyWith<$Res> {
+  __$TokenExpiredExceptionCopyWithImpl(this._self, this._then);
+
+  final _TokenExpiredException _self;
+  final $Res Function(_TokenExpiredException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$UnrecognizedExceptionImpl(
+    return _then(_TokenExpiredException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1026,206 +389,75 @@ class __$$UnrecognizedExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UnrecognizedExceptionImpl implements _UnrecognizedException {
-  const _$UnrecognizedExceptionImpl(
-      {required this.name, required this.message});
+class _UnrecognizedException implements NetworkException {
+  const _UnrecognizedException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UnrecognizedExceptionCopyWith<_UnrecognizedException> get copyWith =>
+      __$UnrecognizedExceptionCopyWithImpl<_UnrecognizedException>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UnrecognizedException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.UnrecognizedException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UnrecognizedExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UnrecognizedExceptionImplCopyWith<_$UnrecognizedExceptionImpl>
-      get copyWith => __$$UnrecognizedExceptionImplCopyWithImpl<
-          _$UnrecognizedExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return UnrecognizedException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return UnrecognizedException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (UnrecognizedException != null) {
-      return UnrecognizedException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return UnrecognizedException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return UnrecognizedException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (UnrecognizedException != null) {
-      return UnrecognizedException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UnrecognizedException implements NetworkException {
-  const factory _UnrecognizedException(
-      {required final String name,
-      required final String message}) = _$UnrecognizedExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UnrecognizedExceptionImplCopyWith<_$UnrecognizedExceptionImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CancelExceptionImplCopyWith<$Res>
+abstract mixin class _$UnrecognizedExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$CancelExceptionImplCopyWith(_$CancelExceptionImpl value,
-          $Res Function(_$CancelExceptionImpl) then) =
-      __$$CancelExceptionImplCopyWithImpl<$Res>;
+  factory _$UnrecognizedExceptionCopyWith(_UnrecognizedException value,
+          $Res Function(_UnrecognizedException) _then) =
+      __$UnrecognizedExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$CancelExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$CancelExceptionImpl>
-    implements _$$CancelExceptionImplCopyWith<$Res> {
-  __$$CancelExceptionImplCopyWithImpl(
-      _$CancelExceptionImpl _value, $Res Function(_$CancelExceptionImpl) _then)
-      : super(_value, _then);
+class __$UnrecognizedExceptionCopyWithImpl<$Res>
+    implements _$UnrecognizedExceptionCopyWith<$Res> {
+  __$UnrecognizedExceptionCopyWithImpl(this._self, this._then);
+
+  final _UnrecognizedException _self;
+  final $Res Function(_UnrecognizedException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$CancelExceptionImpl(
+    return _then(_UnrecognizedException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1234,207 +466,74 @@ class __$$CancelExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CancelExceptionImpl implements _CancelException {
-  const _$CancelExceptionImpl({required this.name, required this.message});
+class _CancelException implements NetworkException {
+  const _CancelException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CancelExceptionCopyWith<_CancelException> get copyWith =>
+      __$CancelExceptionCopyWithImpl<_CancelException>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CancelException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.CancelException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CancelExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CancelExceptionImplCopyWith<_$CancelExceptionImpl> get copyWith =>
-      __$$CancelExceptionImplCopyWithImpl<_$CancelExceptionImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return CancelException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return CancelException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (CancelException != null) {
-      return CancelException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return CancelException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return CancelException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (CancelException != null) {
-      return CancelException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CancelException implements NetworkException {
-  const factory _CancelException(
-      {required final String name,
-      required final String message}) = _$CancelExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CancelExceptionImplCopyWith<_$CancelExceptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ConnectTimeoutExceptionImplCopyWith<$Res>
+abstract mixin class _$CancelExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$ConnectTimeoutExceptionImplCopyWith(
-          _$ConnectTimeoutExceptionImpl value,
-          $Res Function(_$ConnectTimeoutExceptionImpl) then) =
-      __$$ConnectTimeoutExceptionImplCopyWithImpl<$Res>;
+  factory _$CancelExceptionCopyWith(
+          _CancelException value, $Res Function(_CancelException) _then) =
+      __$CancelExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$ConnectTimeoutExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$ConnectTimeoutExceptionImpl>
-    implements _$$ConnectTimeoutExceptionImplCopyWith<$Res> {
-  __$$ConnectTimeoutExceptionImplCopyWithImpl(
-      _$ConnectTimeoutExceptionImpl _value,
-      $Res Function(_$ConnectTimeoutExceptionImpl) _then)
-      : super(_value, _then);
+class __$CancelExceptionCopyWithImpl<$Res>
+    implements _$CancelExceptionCopyWith<$Res> {
+  __$CancelExceptionCopyWithImpl(this._self, this._then);
+
+  final _CancelException _self;
+  final $Res Function(_CancelException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$ConnectTimeoutExceptionImpl(
+    return _then(_CancelException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1443,208 +542,75 @@ class __$$ConnectTimeoutExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ConnectTimeoutExceptionImpl implements _ConnectTimeoutException {
-  const _$ConnectTimeoutExceptionImpl(
-      {required this.name, required this.message});
+class _ConnectTimeoutException implements NetworkException {
+  const _ConnectTimeoutException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ConnectTimeoutExceptionCopyWith<_ConnectTimeoutException> get copyWith =>
+      __$ConnectTimeoutExceptionCopyWithImpl<_ConnectTimeoutException>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ConnectTimeoutException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.ConnectTimeoutException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ConnectTimeoutExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ConnectTimeoutExceptionImplCopyWith<_$ConnectTimeoutExceptionImpl>
-      get copyWith => __$$ConnectTimeoutExceptionImplCopyWithImpl<
-          _$ConnectTimeoutExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return ConnectTimeoutException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return ConnectTimeoutException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (ConnectTimeoutException != null) {
-      return ConnectTimeoutException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return ConnectTimeoutException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return ConnectTimeoutException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (ConnectTimeoutException != null) {
-      return ConnectTimeoutException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ConnectTimeoutException implements NetworkException {
-  const factory _ConnectTimeoutException(
-      {required final String name,
-      required final String message}) = _$ConnectTimeoutExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ConnectTimeoutExceptionImplCopyWith<_$ConnectTimeoutExceptionImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ReceiveTimeoutExceptionImplCopyWith<$Res>
+abstract mixin class _$ConnectTimeoutExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$ReceiveTimeoutExceptionImplCopyWith(
-          _$ReceiveTimeoutExceptionImpl value,
-          $Res Function(_$ReceiveTimeoutExceptionImpl) then) =
-      __$$ReceiveTimeoutExceptionImplCopyWithImpl<$Res>;
+  factory _$ConnectTimeoutExceptionCopyWith(_ConnectTimeoutException value,
+          $Res Function(_ConnectTimeoutException) _then) =
+      __$ConnectTimeoutExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$ReceiveTimeoutExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$ReceiveTimeoutExceptionImpl>
-    implements _$$ReceiveTimeoutExceptionImplCopyWith<$Res> {
-  __$$ReceiveTimeoutExceptionImplCopyWithImpl(
-      _$ReceiveTimeoutExceptionImpl _value,
-      $Res Function(_$ReceiveTimeoutExceptionImpl) _then)
-      : super(_value, _then);
+class __$ConnectTimeoutExceptionCopyWithImpl<$Res>
+    implements _$ConnectTimeoutExceptionCopyWith<$Res> {
+  __$ConnectTimeoutExceptionCopyWithImpl(this._self, this._then);
+
+  final _ConnectTimeoutException _self;
+  final $Res Function(_ConnectTimeoutException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$ReceiveTimeoutExceptionImpl(
+    return _then(_ConnectTimeoutException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1653,206 +619,75 @@ class __$$ReceiveTimeoutExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ReceiveTimeoutExceptionImpl implements _ReceiveTimeoutException {
-  const _$ReceiveTimeoutExceptionImpl(
-      {required this.name, required this.message});
+class _ReceiveTimeoutException implements NetworkException {
+  const _ReceiveTimeoutException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
+
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ReceiveTimeoutExceptionCopyWith<_ReceiveTimeoutException> get copyWith =>
+      __$ReceiveTimeoutExceptionCopyWithImpl<_ReceiveTimeoutException>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ReceiveTimeoutException &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, message);
 
   @override
   String toString() {
     return 'NetworkException.ReceiveTimeoutException(name: $name, message: $message)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ReceiveTimeoutExceptionImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, name, message);
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ReceiveTimeoutExceptionImplCopyWith<_$ReceiveTimeoutExceptionImpl>
-      get copyWith => __$$ReceiveTimeoutExceptionImplCopyWithImpl<
-          _$ReceiveTimeoutExceptionImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
-  }) {
-    return ReceiveTimeoutException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return ReceiveTimeoutException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (ReceiveTimeoutException != null) {
-      return ReceiveTimeoutException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return ReceiveTimeoutException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return ReceiveTimeoutException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (ReceiveTimeoutException != null) {
-      return ReceiveTimeoutException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ReceiveTimeoutException implements NetworkException {
-  const factory _ReceiveTimeoutException(
-      {required final String name,
-      required final String message}) = _$ReceiveTimeoutExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ReceiveTimeoutExceptionImplCopyWith<_$ReceiveTimeoutExceptionImpl>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SendTimeoutExceptionImplCopyWith<$Res>
+abstract mixin class _$ReceiveTimeoutExceptionCopyWith<$Res>
     implements $NetworkExceptionCopyWith<$Res> {
-  factory _$$SendTimeoutExceptionImplCopyWith(_$SendTimeoutExceptionImpl value,
-          $Res Function(_$SendTimeoutExceptionImpl) then) =
-      __$$SendTimeoutExceptionImplCopyWithImpl<$Res>;
+  factory _$ReceiveTimeoutExceptionCopyWith(_ReceiveTimeoutException value,
+          $Res Function(_ReceiveTimeoutException) _then) =
+      __$ReceiveTimeoutExceptionCopyWithImpl;
   @override
   @useResult
   $Res call({String name, String message});
 }
 
 /// @nodoc
-class __$$SendTimeoutExceptionImplCopyWithImpl<$Res>
-    extends _$NetworkExceptionCopyWithImpl<$Res, _$SendTimeoutExceptionImpl>
-    implements _$$SendTimeoutExceptionImplCopyWith<$Res> {
-  __$$SendTimeoutExceptionImplCopyWithImpl(_$SendTimeoutExceptionImpl _value,
-      $Res Function(_$SendTimeoutExceptionImpl) _then)
-      : super(_value, _then);
+class __$ReceiveTimeoutExceptionCopyWithImpl<$Res>
+    implements _$ReceiveTimeoutExceptionCopyWith<$Res> {
+  __$ReceiveTimeoutExceptionCopyWithImpl(this._self, this._then);
+
+  final _ReceiveTimeoutException _self;
+  final $Res Function(_ReceiveTimeoutException) _then;
 
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? name = null,
     Object? message = null,
   }) {
-    return _then(_$SendTimeoutExceptionImpl(
+    return _then(_ReceiveTimeoutException(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -1861,24 +696,28 @@ class __$$SendTimeoutExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SendTimeoutExceptionImpl implements _SendTimeoutException {
-  const _$SendTimeoutExceptionImpl({required this.name, required this.message});
+class _SendTimeoutException implements NetworkException {
+  const _SendTimeoutException({required this.name, required this.message});
 
   @override
   final String name;
   @override
   final String message;
 
+  /// Create a copy of NetworkException
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'NetworkException.SendTimeoutException(name: $name, message: $message)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SendTimeoutExceptionCopyWith<_SendTimeoutException> get copyWith =>
+      __$SendTimeoutExceptionCopyWithImpl<_SendTimeoutException>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SendTimeoutExceptionImpl &&
+            other is _SendTimeoutException &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -1886,143 +725,50 @@ class _$SendTimeoutExceptionImpl implements _SendTimeoutException {
   @override
   int get hashCode => Object.hash(runtimeType, name, message);
 
+  @override
+  String toString() {
+    return 'NetworkException.SendTimeoutException(name: $name, message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$SendTimeoutExceptionCopyWith<$Res>
+    implements $NetworkExceptionCopyWith<$Res> {
+  factory _$SendTimeoutExceptionCopyWith(_SendTimeoutException value,
+          $Res Function(_SendTimeoutException) _then) =
+      __$SendTimeoutExceptionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String name, String message});
+}
+
+/// @nodoc
+class __$SendTimeoutExceptionCopyWithImpl<$Res>
+    implements _$SendTimeoutExceptionCopyWith<$Res> {
+  __$SendTimeoutExceptionCopyWithImpl(this._self, this._then);
+
+  final _SendTimeoutException _self;
+  final $Res Function(_SendTimeoutException) _then;
+
   /// Create a copy of NetworkException
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SendTimeoutExceptionImplCopyWith<_$SendTimeoutExceptionImpl>
-      get copyWith =>
-          __$$SendTimeoutExceptionImplCopyWithImpl<_$SendTimeoutExceptionImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name, String message) FormatException,
-    required TResult Function(String name, String message) FetchDataException,
-    required TResult Function(String name, String message) ApiException,
-    required TResult Function(String name, String message)
-        TokenExpiredException,
-    required TResult Function(String name, String message)
-        UnrecognizedException,
-    required TResult Function(String name, String message) CancelException,
-    required TResult Function(String name, String message)
-        ConnectTimeoutException,
-    required TResult Function(String name, String message)
-        ReceiveTimeoutException,
-    required TResult Function(String name, String message) SendTimeoutException,
+  $Res call({
+    Object? name = null,
+    Object? message = null,
   }) {
-    return SendTimeoutException(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String message)? FormatException,
-    TResult? Function(String name, String message)? FetchDataException,
-    TResult? Function(String name, String message)? ApiException,
-    TResult? Function(String name, String message)? TokenExpiredException,
-    TResult? Function(String name, String message)? UnrecognizedException,
-    TResult? Function(String name, String message)? CancelException,
-    TResult? Function(String name, String message)? ConnectTimeoutException,
-    TResult? Function(String name, String message)? ReceiveTimeoutException,
-    TResult? Function(String name, String message)? SendTimeoutException,
-  }) {
-    return SendTimeoutException?.call(name, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String message)? FormatException,
-    TResult Function(String name, String message)? FetchDataException,
-    TResult Function(String name, String message)? ApiException,
-    TResult Function(String name, String message)? TokenExpiredException,
-    TResult Function(String name, String message)? UnrecognizedException,
-    TResult Function(String name, String message)? CancelException,
-    TResult Function(String name, String message)? ConnectTimeoutException,
-    TResult Function(String name, String message)? ReceiveTimeoutException,
-    TResult Function(String name, String message)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (SendTimeoutException != null) {
-      return SendTimeoutException(name, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FormatException value) FormatException,
-    required TResult Function(_FetchDataException value) FetchDataException,
-    required TResult Function(_ApiException value) ApiException,
-    required TResult Function(_TokenExpiredException value)
-        TokenExpiredException,
-    required TResult Function(_UnrecognizedException value)
-        UnrecognizedException,
-    required TResult Function(_CancelException value) CancelException,
-    required TResult Function(_ConnectTimeoutException value)
-        ConnectTimeoutException,
-    required TResult Function(_ReceiveTimeoutException value)
-        ReceiveTimeoutException,
-    required TResult Function(_SendTimeoutException value) SendTimeoutException,
-  }) {
-    return SendTimeoutException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FormatException value)? FormatException,
-    TResult? Function(_FetchDataException value)? FetchDataException,
-    TResult? Function(_ApiException value)? ApiException,
-    TResult? Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult? Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult? Function(_CancelException value)? CancelException,
-    TResult? Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult? Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult? Function(_SendTimeoutException value)? SendTimeoutException,
-  }) {
-    return SendTimeoutException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FormatException value)? FormatException,
-    TResult Function(_FetchDataException value)? FetchDataException,
-    TResult Function(_ApiException value)? ApiException,
-    TResult Function(_TokenExpiredException value)? TokenExpiredException,
-    TResult Function(_UnrecognizedException value)? UnrecognizedException,
-    TResult Function(_CancelException value)? CancelException,
-    TResult Function(_ConnectTimeoutException value)? ConnectTimeoutException,
-    TResult Function(_ReceiveTimeoutException value)? ReceiveTimeoutException,
-    TResult Function(_SendTimeoutException value)? SendTimeoutException,
-    required TResult orElse(),
-  }) {
-    if (SendTimeoutException != null) {
-      return SendTimeoutException(this);
-    }
-    return orElse();
+    return _then(_SendTimeoutException(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
-abstract class _SendTimeoutException implements NetworkException {
-  const factory _SendTimeoutException(
-      {required final String name,
-      required final String message}) = _$SendTimeoutExceptionImpl;
-
-  @override
-  String get name;
-  @override
-  String get message;
-
-  /// Create a copy of NetworkException
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SendTimeoutExceptionImplCopyWith<_$SendTimeoutExceptionImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

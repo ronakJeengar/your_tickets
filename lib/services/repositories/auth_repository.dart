@@ -1,8 +1,6 @@
 //models
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
-
 import '../../models/user_model.dart';
 
 //services
@@ -17,10 +15,9 @@ class AuthRepository {
 
   AuthRepository({required ApiService apiService}) : _apiService = apiService;
 
-  Future<UserModel> login({required JSON data}) async {
-    log('------------------');
-    return await _apiService.setData<UserModel>(
-      endpoint: ApiEndpoint.auth(AuthEndpoint.LOGIN),
+  Future<User> login({required JSON data}) async {
+    return await _apiService.setData<User>(
+      endpoint: ApiEndpoint.auth(AuthEndpoint.SEND_OTP),
       data: data,
       requiresAuthToken: false,
       converter: (response) {
@@ -28,16 +25,16 @@ class AuthRepository {
         // updateTokenCallback(response['body']['token'] as String);
         // return UserModel.fromJson(response['body'] as JSON);
         log('response is :- ${response['user']}');
-        final user = UserModel.fromJson(response['user']);
+        final user = User.fromJson(response['user']);
         return user;
       },
     );
   }
 
-  Future<UserModel> register({required JSON data}) async {
+  Future<User> register({required JSON data}) async {
     log('------------------');
     log('data $data');
-    return await _apiService.setData<UserModel>(
+    return await _apiService.setData<User>(
       endpoint: ApiEndpoint.auth(AuthEndpoint.REGISTER),
       data: data,
       requiresAuthToken: false,
@@ -45,7 +42,7 @@ class AuthRepository {
         log('response is :- ${response['user']}');
         // updateTokenCallback(response['body']['token'] as String);
         // data['user_id'] = response['body']['user_id'];
-        final user = UserModel.fromJson(response['user']);
+        final user = User.fromJson(response['user']);
         return user;
       },
     );
