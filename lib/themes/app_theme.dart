@@ -43,11 +43,12 @@ class AppTheme {
       labelStyle: TextStyle(color: Colors.blue[800]),
       hintStyle: TextStyle(color: Colors.blue[400]),
     ),
-    cardTheme:  CardTheme(
-      color: Colors.white,
-      elevation: 4,
-      shadowColor: Colors.blue[200],  // Light shadow for cards
-    ), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+    // cardTheme:  CardTheme(
+    //   color: Colors.white,
+    //   elevation: 4,
+    //   shadowColor: Colors.blue[200],  // Light shadow for cards
+    // ),
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(surface: Colors.white)
         .copyWith(secondary: Colors.lightBlue[300]).copyWith(secondary: Colors.lightBlue[300]),
   );
@@ -94,11 +95,12 @@ class AppTheme {
       labelStyle: const TextStyle(color: Colors.white70),
       hintStyle: const TextStyle(color: Colors.white54),
     ),
-    cardTheme: CardTheme(
-      color: Colors.grey[800],
-      elevation: 4,
-      shadowColor: Colors.blue[700],  // Rich shadow for cards
-    ), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+    // cardTheme: CardTheme(
+    //   color: Colors.grey[800],
+    //   elevation: 4,
+    //   shadowColor: Colors.blue[700],  // Rich shadow for cards
+    // ),
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
         .copyWith(surface: Colors.black)
         .copyWith(secondary: Colors.lightBlue[300]).copyWith(secondary: Colors.lightBlue[300]),
   );

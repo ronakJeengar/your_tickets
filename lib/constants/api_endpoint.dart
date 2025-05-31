@@ -6,7 +6,8 @@ class ApiEndpoint {
 
   static const baseUrl = String.fromEnvironment(
     'BASE_URL',
-    defaultValue: 'localhost:3000/api/v1',
+    // defaultValue: 'localhost:3000/api/v1',
+    defaultValue: 'http://example.com/api/v1',
   );
 
   static String auth(AuthEndpoint endpoint) {

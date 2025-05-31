@@ -13,11 +13,19 @@ import 'package:your_tickets/features/auth/presentation/registration_screen.dart
 import 'package:your_tickets/screens/seating_arrangement.dart';
 import 'package:your_tickets/screens/see_all_movies.dart';
 import 'package:your_tickets/screens/theatre_show_screen.dart';
+import 'package:your_tickets/splash_screen.dart';
 
 class Routes {
   static GoRouter router = GoRouter(
-    initialLocation: RoutePath.dashboard,
+    initialLocation: RoutePath.splash,
     routes: [
+      GoRoute(
+        name: RoutesName.splash,
+        path: RoutePath.splash,
+        builder: (context, state) {
+          return const SplashScreen();
+        },
+      ),
       GoRoute(
         name: RoutesName.dashboard,
         path: RoutePath.dashboard,
