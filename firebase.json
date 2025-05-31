@@ -1,8 +1,1 @@
-{
-  "firestore": {
-    "database": "(default)",
-    "location": "asia-south1",
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  }
-}
+{"firestore":{"database":"(default)","location":"asia-south1","rules":"firestore.rules","indexes":"firestore.indexes.json"},"flutter":{"platforms":{"android":{"default":{"projectId":"ticketbookingapp-41157","appId":"1:873924788444:android:3cdb6c2e8306352120f419","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"ticketbookingapp-41157","configurations":{"android":"1:873924788444:android:3cdb6c2e8306352120f419","ios":"1:873924788444:ios:73d905e3c9f706ff20f419","macos":"1:873924788444:ios:73d905e3c9f706ff20f419","web":"1:873924788444:web:339ce4ca95c4b2fe20f419","windows":"1:873924788444:web:7a40dd1357e1024920f419"}}}}}}
